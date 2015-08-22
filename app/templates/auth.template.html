@@ -1,0 +1,21 @@
+<modal-jiraHeader>
+	Jira Authentification
+</modal-JiraHeader>
+<form type="post" action="" class="authForm">
+	<modal-jiraContent>
+		<modal-content>
+			<p-jira>Login</p-jira>
+			<input type="text" name="username" class="jira-input" placeholder="Username" required value="{{username}}">
+			<input type="password" name="password" class="jira-input" placeholder="Password" required value="{{password}}">
+
+			<p-jira>While your there, what project would you like to connect?</p-jira>
+			<input type="url" name="url" class="jira-input" placeholder="Jira URL" required value="{{url}}">
+			<input type="text" name="projectid" class="jira-input" placeholder="Project ID" required value="{{projectid}}">
+		</modal-content>
+	</modal-jiraContent>
+	<modal-jiraFooter>
+		<button-jira class="btnJira-default btn-jira-cancel">Cancel</button-jira>
+		<button-jira type="submit" class="btnJira-primary btn-jira-connect">Save</button-jira>
+	</modal-jiraFooter>
+</form>
+<jira-progress class="jira-progress-modal" component="loader" name="progressBar"></jira-progress>

@@ -1,0 +1,6 @@
+{
+    "preset": "airbnb",
+    "esnext": true,
+    "disallowMultipleVarDecl": "exceptUndefined" 
+    "excludeFiles": ["node_modules/**", "vendor/**"]
+}

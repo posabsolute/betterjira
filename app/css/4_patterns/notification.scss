@@ -1,0 +1,20 @@
+jira-notification {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999999;
+  color: #fff;
+  font-size: 17px;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  background: #2ea91a;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+}
+
+.jira-notification-error{
+  background: #ff5f5f;
+}

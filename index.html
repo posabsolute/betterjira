@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href="dist/css/dev/main.css" rel="stylesheet">
+
+</head>
+<body>
+  <div id="main"></div>
+
+  <script src="vendor/system.js"></script>
+  <script src="config.js"></script>
+  <script>
+  System.import('backbone').then(function(Backbone) {
+    System.import('jquery').then(function() {
+      Backbone.$ = $;
+      System.import('app/app');
+    });
+  });
+  </script>
+</body>
+</html>
