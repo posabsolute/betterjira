@@ -13,25 +13,45 @@ jira-sidebar__background{
 	top:0; left:0;
 	z-index:1;
 	width:100%; height:100%;
-	background-image: linear-gradient(-180deg, #FF6A3A 0%, #000000 100%);
-	opacity: 0.65;
+	background-image: linear-gradient(-180deg, rgba(255, 106, 58, 0.65) 0%, rgba(0, 0, 0, 0.9) 100%);
 }
 jira-sidebar__content{
 	position:relative;
 	z-index:2;
+	padding:50px 0 0 0;
 	display: block;
 }
 	jira-sidebar__link{
+		position: relative;
 		display:block;
 		cursor:pointer;
 		text-transform: uppercase;
-		margin:0 10px;
-		padding:5px 0;
+	    margin: 0 10px 0 10px;
+	    padding: 8px 0px 12px 27px;
 		color:#fff;
 		/* Calendar: */
 		font-family: Montserrat-Bold;
-		font-size: 13px;
+		font-size: 15px;
 		color: #FFFFFF;
 		letter-spacing: 1px;
 		line-height: 16px;
+		span{
+			display: inline-block;
+			margin-top:-3px;
+		}
+		&:before{
+			position: absolute;
+			display:inline-block;
+			padding:0px 3px 0 0px;
+			margin-top:-2px;
+			font-size: 20px;
+			left: 0;
+		}
+	}
+	jira-close-link{
+		cursor:pointer;
+	    font-size: 25px;
+	    position: absolute;
+	    top: 8px; left: 6px;
+	    color:#fff;
 	}

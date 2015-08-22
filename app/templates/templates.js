@@ -45,7 +45,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<jira-sidebar__background></jira-sidebar__background>\n<jira-sidebar__content>\n\t<jira-sidebar__menu>\n\t\t<jira-sidebar__link href=\"settings\">Add Story or bug</jira-sidebar__link>\n\t\t<jira-sidebar__link href=\"settings\">Backlog</jira-sidebar__link>\n\t\t<jira-sidebar__link href=\"settings\">Intelligence</jira-sidebar__link>\n\t\t<jira-sidebar__link href=\"settings\">Profile</jira-sidebar__link>\n\t</jira>\n\t<jira-sidebar__container class=\"jira-hidden\"></jira-sidebar__container>\n\n</jira-sidebar__content>\n";
+output += "<jira-sidebar__background></jira-sidebar__background>\n<jira-sidebar__content>\n\t<jira-close-link class=\"icon-close\"></jira-close-link>\n\t<jira-sidebar__menu>\n\t\t<jira-sidebar__link class=\"icon-story\" href=\"settings\"><span>Add Story or bug</span></jira-sidebar__link>\n\t\t<jira-sidebar__link class=\"icon-backlog\" href=\"settings\"><span>Backlog</span></jira-sidebar__link>\n\t\t<jira-sidebar__link class=\"icon-intelligence\" href=\"settings\"><span>Intelligence</span></jira-sidebar__link>\n\t\t<jira-sidebar__link class=\"icon-profile\" href=\"settings\"><span>Profile</span></jira-sidebar__link>\n\t</jira>\n\t<jira-sidebar__container class=\"jira-hidden\"></jira-sidebar__container>\n\n</jira-sidebar__content>\n";
 cb(null, output);
 ;
 } catch (e) {
