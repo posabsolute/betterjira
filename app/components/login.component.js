@@ -1,28 +1,28 @@
+import Backbone from 'backbone';
 import serializeObject from 'serializeObject';
-import ModalComponent from '../components/modal/modal-component';
 import Loader from '../components/loader.component';
 
 
-export default class AuthView extends ModalComponent {
+export default class LoginForm extends Backbone.View {
     constructor(...rest) {
         super(...rest);
         this.template = "auth.template.html";
     }
 
-    initialize(user) {
-        this.events = {
+    events(){
+        return {
             "submit .authForm" : "save",
-            "click .btn-jira-connect" : "submitForm"                  
-        };
-        this.user = user;
-        console.log(this);
-        super.initialize.apply(this);
+            "click .btn-jira-connect" : "submitForm"  
+        }
+    }
+
+    initialize(data) {
+        this.user = data.user;
     }
 
     render() {
         var data = this.user.toJSON();
         this.$el.html(nunjucks.render(this.template,data));
-        this.progressBar = new Loader({el: this.$el.find('jira-progress') });
         this.$userForm = this.$el.find(".authForm");
         return this;
     }

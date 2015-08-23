@@ -1,10 +1,15 @@
-import Backbone from 'backbone';
-import AuthView from '../views/auth.view';
+"use strict";
 
+import _ from 'underscore';
+import Backbone from 'backbone';
+import LoginForm from './login.component';
 
 const width = {
   sidebarSmall : 220,
   sidebarFormConnection : 400
+}
+const availableComponents = {
+  'LoginForm' : LoginForm
 }
 
 export default class SidebarComponent extends Backbone.View {
@@ -27,7 +32,8 @@ export default class SidebarComponent extends Backbone.View {
   }
 
   render() {
-    this.$el.html(nunjucks.render(this.template))
+    this.$el.html(nunjucks.render(this.template));
+    this.initializeViewComponents(availableComponents);
   	return this;
   }
 
@@ -35,7 +41,7 @@ export default class SidebarComponent extends Backbone.View {
     if(this.user.isConnected()){
       this.showMenu();
     }else{
-      this.showConnectionForm();
+      this.showLoginForm();
     }
   }
 
@@ -44,10 +50,9 @@ export default class SidebarComponent extends Backbone.View {
   	this.animate("in", width.sidebarSmall);
   }
 
-  showConnectionForm(){
+  showLoginForm(){
   	this.$("jira-sidebar__menu").addClass("hidden");
-  	var connexionForm =  new AuthView();
-  	this.$("jira-sidebar__menu").removeClass("hidden").append(connexionForm.render().$el);
+  	this.LoginForm.render();
   	this.animate("in", width.sidebarFormConnection);
   }
 

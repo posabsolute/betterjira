@@ -1,26 +1,26 @@
 System.config({
-  "baseURL": "/",
-  "transpiler": "babel",
-  "babelOptions": {
+  baseURL: "/",
+  defaultJSExtensions: true,
+  transpiler: "babel",
+  babelOptions: {
     "optional": [
       "runtime"
     ]
   },
-  "paths": {
-    "*": "*.js",
-    "github:*": "vendor/github/*.js",
-    "npm:*": "vendor/npm/*.js"
-  }
-});
+  paths: {
+    "github:*": "vendor/github/*",
+    "npm:*": "vendor/npm/*"
+  },
 
-System.config({
-  "map": {
+  map: {
     "babel": "npm:babel-core@5.6.4",
     "babel-runtime": "npm:babel-runtime@5.6.4",
     "backbone": "npm:backbone@1.2.1",
     "backbone.babysitter": "github:marionettejs/backbone.babysitter@0.1.8",
+    "backbone.cocktail": "npm:backbone.cocktail@0.5.10",
     "backbone.radio": "npm:backbone.radio@1.0.0",
     "backbone.wreqr": "github:marionettejs/backbone.wreqr@1.3.3",
+    "cocktail": "npm:cocktail@0.7.1",
     "core-js": "npm:core-js@0.9.6",
     "hotkeys": "github:jeresig/jquery.hotkeys@0.2.0",
     "jeresig/jquery.hotkeys": "github:jeresig/jquery.hotkeys@0.2.0",
@@ -103,21 +103,6 @@ System.config({
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
     },
-    "npm:babel-core@5.6.3": {
-      "assert": "github:jspm/nodelibs-assert@0.1.0",
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "events": "github:jspm/nodelibs-events@0.1.1",
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "module": "github:jspm/nodelibs-module@0.1.0",
-      "net": "github:jspm/nodelibs-net@0.1.2",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "stream": "github:jspm/nodelibs-stream@0.1.0",
-      "string_decoder": "github:jspm/nodelibs-string_decoder@0.1.0",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0",
-      "tty": "github:jspm/nodelibs-tty@0.1.0",
-      "util": "github:jspm/nodelibs-util@0.1.0"
-    },
     "npm:babel-core@5.6.4": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -133,11 +118,11 @@ System.config({
       "tty": "github:jspm/nodelibs-tty@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:babel-runtime@5.6.3": {
-      "process": "github:jspm/nodelibs-process@0.1.1"
-    },
     "npm:babel-runtime@5.6.4": {
       "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:backbone.cocktail@0.5.10": {
+      "underscore": "npm:underscore@1.5.2"
     },
     "npm:backbone.radio@1.0.0": {
       "backbone": "npm:backbone@1.2.1",
@@ -193,6 +178,9 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1",
       "readdirp": "npm:readdirp@1.3.0"
+    },
+    "npm:cocktail@0.7.1": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:constants-browserify@0.0.1": {
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
@@ -401,4 +389,3 @@ System.config({
     }
   }
 });
-
