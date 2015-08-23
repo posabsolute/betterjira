@@ -4,20 +4,15 @@ import Loader from '../components/loader.component';
 
 
 export default class LoginForm extends Backbone.View {
-    constructor(...rest) {
-        super(...rest);
-        this.template = "auth.template.html";
-    }
 
-    events(){
-        return {
-            "submit .authForm" : "save",
-            "click .btn-jira-connect" : "submitForm"  
-        }
-    }
+    events(){ return {
+        "submit .authForm" : "save",
+        "click .btn-jira-connect" : "submitForm"  
+    }}
 
     initialize(data) {
         this.user = data.user;
+        this.template = "auth.template.html";
     }
 
     render() {

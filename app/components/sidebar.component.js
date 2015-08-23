@@ -16,20 +16,14 @@ export default class SidebarComponent extends Backbone.View {
 
   tagName() {return 'jira-sidebar'; }
 
-  constructor(...rest) {
-    super(...rest);
+  initialize(user) {
+  	this.user = user;
     this.template = "sidebar.component.html";
   }
 
-  initialize(user) {
-  	this.user = user;
-  }
-
-  events(){
-    return {
-      "click jira-close-link" : "hide"
-    }
-  }
+  events(){ return {
+    "click jira-close-link" : "hide"
+  }}
 
   render() {
     this.$el.html(nunjucks.render(this.template));
