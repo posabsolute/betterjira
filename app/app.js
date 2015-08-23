@@ -3,36 +3,15 @@ import Backbone from 'backbone';
 import cocktail from 'backbone.cocktail';
 import radio from 'backbone.radio';
 import nunjucks from 'nunjucks';
+import {BackboneViewComponentsPatch} from './utils/declarative-patch.backbone';
+
 import templates from './templates/templates';
 import Router from './router';
 import User from './models/jira.model';
 import NotificationComponent from './components/notification.component';
 
-// Initialize declarative view system.
-Backbone.View.prototype.initializeViewComponents = function(){
-	var $components = this.$("[component]");
-    $components.each((i, el) => {
-      var $el = $(el),
-          name = $el.attr("name"),
-          initVars = $el.attr("initVars") ? $el.attr("initVars").split(',') : "",
-          component = $el.attr("component"),
-          options  = {el: $el };
-
-      if(initVars){
-      	initVars.forEach((data)=>{
-      		options[data] = this[data];
-      	})
-      }
-      console.log(component)
-      this[name] =  new this.availableComponents[component](options);
-    }); 
-}
-Backbone.View.prototype.renderHtml = function(data){
-    this.$el.html(nunjucks.render(this.template, data));
-    this.initializeViewComponents();
-  	return this;
-};
-
+// Add components system to Backbone.View prototype
+BackboneViewComponentsPatch();
 
 // currentUser is unique
 var currentUser = new User();
