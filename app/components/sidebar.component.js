@@ -19,17 +19,12 @@ export default class SidebarComponent extends Backbone.View {
   initialize(user) {
   	this.user = user;
     this.template = "sidebar.component.html";
+    this.availableComponents = availableComponents;
   }
 
   events(){ return {
     "click jira-close-link" : "hide"
   }}
-
-  render() {
-    this.$el.html(nunjucks.render(this.template));
-    this.initializeViewComponents(availableComponents);
-  	return this;
-  }
 
   show(){
     if(this.user.isConnected()){
@@ -46,7 +41,8 @@ export default class SidebarComponent extends Backbone.View {
 
   showLoginForm(){
   	this.$("jira-sidebar__menu").addClass("hidden");
-  	this.LoginForm.render();
+    var data = this.user.toJSON();
+  	this.LoginForm.renderHtml(data);
   	this.animate("in", width.sidebarFormConnection);
   }
 

@@ -9,12 +9,12 @@ import User from './models/jira.model';
 import NotificationComponent from './components/notification.component';
 
 // Initialize declarative view system.
-Backbone.View.prototype.initializeViewComponents = function(availableComponents){
+Backbone.View.prototype.initializeViewComponents = function(){
 	var $components = this.$("[component]");
     $components.each((i, el) => {
       var $el = $(el),
           name = $el.attr("name"),
-          initVars = $el.attr("initVars").split(','),
+          initVars = $el.attr("initVars") ? $el.attr("initVars").split(',') : "",
           component = $el.attr("component"),
           options  = {el: $el };
 
@@ -23,9 +23,16 @@ Backbone.View.prototype.initializeViewComponents = function(availableComponents)
       		options[data] = this[data];
       	})
       }
-      this[name] =  new availableComponents[component](options);
+      console.log(component)
+      this[name] =  new this.availableComponents[component](options);
     }); 
 }
+Backbone.View.prototype.renderHtml = function(data){
+    this.$el.html(nunjucks.render(this.template, data));
+    this.initializeViewComponents();
+  	return this;
+};
+
 
 // currentUser is unique
 var currentUser = new User();

@@ -28,7 +28,7 @@ output += "\">\n\n\t\t\t<p-jira>While your there, what project would you like to
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "url"), env.opts.autoescape);
 output += "\">\n\t\t\t<input type=\"text\" name=\"projectid\" class=\"jira-input\" placeholder=\"Project ID\" required value=\"";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "projectid"), env.opts.autoescape);
-output += "\">\n\t\t</modal-content>\n\t</modal-jiraContent>\n\t<modal-jiraFooter>\n\t\t<button-jira class=\"btnJira-default btn-jira-cancel\">Cancel</button-jira>\n\t\t<button-jira type=\"submit\" class=\"btnJira-primary btn-jira-connect\">Save</button-jira>\n\t</modal-jiraFooter>\n</form>\n<jira-progress class=\"jira-progress-modal\" component=\"loader\" name=\"progressBar\"></jira-progress>";
+output += "\">\n\t\t</modal-content>\n\t</modal-jiraContent>\n\t<modal-jiraFooter>\n\t\t<button-jira class=\"btnJira-default btn-jira-cancel\">Cancel</button-jira>\n\t\t<button-jira type=\"submit\" class=\"btnJira-primary btn-jira-connect\">Save</button-jira>\n\t</modal-jiraFooter>\n</form>\n<jira-progress class=\"jira-progress-modal\" component=\"Loader\" name=\"progressBar\"></jira-progress>";
 cb(null, output);
 ;
 } catch (e) {

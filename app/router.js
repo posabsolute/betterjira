@@ -20,7 +20,7 @@ export default class Router extends Backbone.Router {
 
   	showSidebar (Modal){
       this.sidebar = new Sidebar(this.user);
-      $("body").append(this.sidebar.render().$el);
+      $("body").append(this.sidebar.renderHtml().$el);
       this.sidebar.show();
   	}
 

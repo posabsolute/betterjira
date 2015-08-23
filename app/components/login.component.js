@@ -2,6 +2,9 @@ import Backbone from 'backbone';
 import serializeObject from 'serializeObject';
 import Loader from '../components/loader.component';
 
+const availableComponents = {
+  'Loader' : Loader
+}
 
 export default class LoginForm extends Backbone.View {
 
@@ -13,13 +16,7 @@ export default class LoginForm extends Backbone.View {
     initialize(data) {
         this.user = data.user;
         this.template = "auth.template.html";
-    }
-
-    render() {
-        var data = this.user.toJSON();
-        this.$el.html(nunjucks.render(this.template,data));
-        this.$userForm = this.$el.find(".authForm");
-        return this;
+        this.availableComponents = availableComponents;
     }
 
     submitForm(e) {
