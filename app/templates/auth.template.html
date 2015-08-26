@@ -1,21 +1,17 @@
-<modal-jiraHeader>
-	Jira Authentification
-</modal-JiraHeader>
 <form type="post" action="" class="authForm">
 	<modal-jiraContent>
 		<modal-content>
-			<p-jira>Login</p-jira>
-			<input type="text" name="username" class="jira-input" placeholder="Username" required value="{{username}}">
-			<input type="password" name="password" class="jira-input" placeholder="Password" required value="{{password}}">
+			<p-jira class="centerParent">Jira Login</p-jira>
+			<input type="text" name="username" class="jira-input__opacity top10" placeholder="Username" required value="{{username}}">
+			<input type="password" name="password" class="jira-input__opacity top10" placeholder="Password" required value="{{password}}">
 
-			<p-jira>While your there, what project would you like to connect?</p-jira>
-			<input type="url" name="url" class="jira-input" placeholder="Jira URL" required value="{{url}}">
-			<input type="text" name="projectid" class="jira-input" placeholder="Project ID" required value="{{projectid}}">
+			<p-jira class="centerParent">Project Informations</p-jira>
+			<input type="url" name="url" class="jira-input__opacity top10" placeholder="Jira URL" required value="{{url}}">
+			<input type="text" name="projectid" class="jira-input__opacity top10" placeholder="Project ID" required value="{{projectid}}">
 		</modal-content>
 	</modal-jiraContent>
-	<modal-jiraFooter>
-		<button-jira class="btnJira-default btn-jira-cancel">Cancel</button-jira>
-		<button-jira type="submit" class="btnJira-primary btn-jira-connect">Save</button-jira>
+	<modal-jiraFooter class="centerParent">
+		<button-jira type="submit" class="btnJira__opacity-primary btn-jira-connect">Continue</button-jira>
 	</modal-jiraFooter>
 </form>
 <jira-progress class="jira-progress-modal" component="Loader" name="progressBar"></jira-progress>

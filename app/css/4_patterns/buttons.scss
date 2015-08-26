@@ -80,6 +80,28 @@ button-jira {
 }
 
 
+.btnJira__opacity-primary{
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  border-radius: 50px;
+  touch-action: manipulation;
+  display:inline-block;
+  font-family: Montserrat-Bold, helvetica;
+  font-size: 13px;
+  padding:10px 40px;
+  margin-top:10px;
+  color: #FFFFFF;
+  line-height: 16px;
+  background:transparent;
+  transition:background ease-in-out .15s;
+  &:hover{
+    color:#fff;
+    background: rgba(255, 255, 255, 0.2); 
+  }
+
+}
+
+
+
 // Alternate buttons
 // --------------------------------------------------
 

@@ -20,15 +20,15 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<modal-jiraHeader>\n\tJira Authentification\n</modal-JiraHeader>\n<form type=\"post\" action=\"\" class=\"authForm\">\n\t<modal-jiraContent>\n\t\t<modal-content>\n\t\t\t<p-jira>Login</p-jira>\n\t\t\t<input type=\"text\" name=\"username\" class=\"jira-input\" placeholder=\"Username\" required value=\"";
+output += "<form type=\"post\" action=\"\" class=\"authForm\">\n\t<modal-jiraContent>\n\t\t<modal-content>\n\t\t\t<p-jira class=\"centerParent\">Jira Login</p-jira>\n\t\t\t<input type=\"text\" name=\"username\" class=\"jira-input__opacity top10\" placeholder=\"Username\" required value=\"";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "username"), env.opts.autoescape);
-output += "\">\n\t\t\t<input type=\"password\" name=\"password\" class=\"jira-input\" placeholder=\"Password\" required value=\"";
+output += "\">\n\t\t\t<input type=\"password\" name=\"password\" class=\"jira-input__opacity top10\" placeholder=\"Password\" required value=\"";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "password"), env.opts.autoescape);
-output += "\">\n\n\t\t\t<p-jira>While your there, what project would you like to connect?</p-jira>\n\t\t\t<input type=\"url\" name=\"url\" class=\"jira-input\" placeholder=\"Jira URL\" required value=\"";
+output += "\">\n\n\t\t\t<p-jira class=\"centerParent\">Project Informations</p-jira>\n\t\t\t<input type=\"url\" name=\"url\" class=\"jira-input__opacity top10\" placeholder=\"Jira URL\" required value=\"";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "url"), env.opts.autoescape);
-output += "\">\n\t\t\t<input type=\"text\" name=\"projectid\" class=\"jira-input\" placeholder=\"Project ID\" required value=\"";
+output += "\">\n\t\t\t<input type=\"text\" name=\"projectid\" class=\"jira-input__opacity top10\" placeholder=\"Project ID\" required value=\"";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "projectid"), env.opts.autoescape);
-output += "\">\n\t\t</modal-content>\n\t</modal-jiraContent>\n\t<modal-jiraFooter>\n\t\t<button-jira class=\"btnJira-default btn-jira-cancel\">Cancel</button-jira>\n\t\t<button-jira type=\"submit\" class=\"btnJira-primary btn-jira-connect\">Save</button-jira>\n\t</modal-jiraFooter>\n</form>\n<jira-progress class=\"jira-progress-modal\" component=\"Loader\" name=\"progressBar\"></jira-progress>";
+output += "\">\n\t\t</modal-content>\n\t</modal-jiraContent>\n\t<modal-jiraFooter class=\"centerParent\">\n\t\t<button-jira type=\"submit\" class=\"btnJira__opacity-primary btn-jira-connect\">Continue</button-jira>\n\t</modal-jiraFooter>\n</form>\n<jira-progress class=\"jira-progress-modal\" component=\"Loader\" name=\"progressBar\"></jira-progress>";
 cb(null, output);
 ;
 } catch (e) {
@@ -45,7 +45,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<jira-sidebar__background></jira-sidebar__background>\n<jira-sidebar__content>\n\t<jira-close-link class=\"icon-close\"></jira-close-link>\n\t<jira-sidebar__menu>\n\t\t<jira-sidebar__link class=\"icon-story\" href=\"settings\"><span>Add Story or bug</span></jira-sidebar__link>\n\t\t<jira-sidebar__link class=\"icon-backlog\" href=\"settings\"><span>Backlog</span></jira-sidebar__link>\n\t\t<jira-sidebar__link class=\"icon-intelligence\" href=\"settings\"><span>Intelligence</span></jira-sidebar__link>\n\t\t<jira-sidebar__link class=\"icon-profile\" href=\"settings\"><span>Profile</span></jira-sidebar__link>\n\t</jira>\n\t<jira-sidebar__container class=\"jira-hidden\">\n\t\t<jira-auth-form component=\"LoginForm\" name=\"LoginForm\" initVars='user'></jira-auth-form>\n\t</jira-sidebar__container>\n</jira-sidebar__content>\n";
+output += "<jira-sidebar__background></jira-sidebar__background>\n<jira-sidebar__content>\n\t<jira-close-link class=\"icon-close\"></jira-close-link>\n\t<jira-sidebar__menu>\n\t\t<jira-sidebar__link class=\"icon-story\" href=\"settings\"><span>Add Story or bug</span></jira-sidebar__link>\n\t\t<jira-sidebar__link class=\"icon-backlog\" href=\"settings\"><span>Backlog</span></jira-sidebar__link>\n\t\t<jira-sidebar__link class=\"icon-intelligence\" href=\"settings\"><span>Intelligence</span></jira-sidebar__link>\n\t\t<jira-sidebar__link class=\"icon-profile\" href=\"settings\"><span>Profile</span></jira-sidebar__link>\n\t</jira-sidebar__menu>\n\t<jira-sidebar__container class=\"jira-hidden\">\n\t\t<jira-auth-form component=\"LoginForm\" class=\"text-align:center;\" name=\"LoginForm\" initVars='user'></jira-auth-form>\n\t</jira-sidebar__container>\n</jira-sidebar__content>\n";
 cb(null, output);
 ;
 } catch (e) {

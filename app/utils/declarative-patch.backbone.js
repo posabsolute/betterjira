@@ -17,12 +17,14 @@ export function BackboneViewComponentsPatch() {
         		options[data] = this[data];
         	})
         }
-        console.log(component)
+        console.log($el)
         this[name] =  new this.availableComponents[component](options);
       }); 
   }
   // default view render function including component init
   Backbone.View.prototype.renderHtml = function(data){
+    console.log(this.$el);
+    console.log(this.template);
     this.$el.html(nunjucks.render(this.template, data));
     this.initializeViewComponents();
   	return this;

@@ -5,7 +5,8 @@ jira-sidebar{
 	z-index:99999;
 	top:0; left:0;
 	height:100%;
-	
+	color:#fff;
+	font-family: Montserrat, helvetica, arial;
 }
 
 jira-sidebar__background{
@@ -54,4 +55,9 @@ jira-sidebar__content{
 	    position: absolute;
 	    top: 8px; left: 6px;
 	    color:#fff;
+	}
+
+	jira-sidebar__container{
+		display: block;
+    	margin: 0 30px;
 	}

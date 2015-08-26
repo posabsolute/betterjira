@@ -35,12 +35,14 @@ export default class SidebarComponent extends Backbone.View {
   }
 
   showMenu(){
-  	this.$("jira-sidebar__menu").removeClass("hidden");
+  	this.$("jira-sidebar__menu").removeClass("jira-hidden");
   	this.animate("in", width.sidebarSmall);
   }
 
   showLoginForm(){
-  	this.$("jira-sidebar__menu").addClass("hidden");
+  	this.$("jira-sidebar__menu").addClass("jira-hidden");
+    this.$("jira-sidebar__container").removeClass("jira-hidden");
+
     var data = this.user.toJSON();
   	this.LoginForm.renderHtml(data);
   	this.animate("in", width.sidebarFormConnection);
@@ -63,7 +65,6 @@ export default class SidebarComponent extends Backbone.View {
         .addClass("hidden")
     }
   }
-
 
   hide() {
     this.animate("out");
