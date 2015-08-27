@@ -20,6 +20,19 @@ export default class SidebarComponent extends Backbone.View {
   	this.user = user;
     this.template = "sidebar.component.html";
     this.availableComponents = availableComponents;
+
+    this.loadRadioEvents()
+  }
+
+  loadRadioEvents(){
+    var notifChannel = Backbone.Radio.channel('sidebar');
+
+    notifChannel.on('hide', (data) => {
+      this.hide();
+    });
+    notifChannel.on('show', (data) => {
+      this.show();
+    });
   }
 
   events(){ return {

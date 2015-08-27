@@ -15,10 +15,18 @@ export default class LoaderComponent extends Backbone.View {
     $parent && $parent.append(this.$el);
 
     this.$el.css({ display:'block' });
+    this.$el.find("jira-progress-indeterminate").addClass("animate");
     this.$el.animate({ opacity:1 }, 200);
   }
 
+  success() {
+    this.$el.find("jira-progress-indeterminate").removeClass("animate").addClass("jira-progress-success");
+    this.$el.animate({ opacity:0 }, 2000);
+  }
+
   hide() {
-    this.$el.animate({ opacity:0 }, 200);
+    this.$el.animate({ opacity:0 }, 200, ()=>{
+      this.$el.find("jira-progress-indeterminate").removeClass("animate");
+    });
   }
 }

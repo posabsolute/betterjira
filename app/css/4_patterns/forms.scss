@@ -51,10 +51,21 @@ label {
 
  }
 
+.jira-input--with-icon{text-indent:30px;}
+
+.input-icon{
+    color: #ddd;
+    position: absolute;
+    top: 30px;left: 25px;
+    z-index: 2;
+}
+
  textarea.jira-input{
  	height:150px;
  	margin-bottom:10px;
  }
+
+.inputContainer{position:relative;}
 
 p-jira{
   display:inline-block;

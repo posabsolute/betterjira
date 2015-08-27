@@ -20,7 +20,15 @@ module.exports = function(grunt) {
         dest: 'app/templates/templates.js'
       }
     },
-
+    watch: {
+      scripts: {
+        files: 'app/**/*.scss, app/**/*.html,',
+        tasks: ['build'],
+        options: {
+          interrupt: true,
+        },
+      },
+    },
     sass: {
       options: {
         sourceMap: true
@@ -45,5 +53,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-nunjucks');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
+  grunt.registerTask("build", ["nunjucks", "sass"]);
 
 };

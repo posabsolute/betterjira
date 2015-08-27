@@ -3,22 +3,24 @@ jira-progress {
   height: 4px;
   display: none;
   width: 100%;
-  background-color: #acece6;
+  //background-color: #acece6;
   margin: 0;
   opacity:0;
   overflow: hidden;
 
 }
-
-	.jira-progress-modal{
+  
+	.jira-progress--bottom{
 		position:absolute;
 		bottom:0; left:0;
-		width:100%;
-
 	}
+  .jira-progress--top{
+    position:absolute;
+    top:0; left:0;
+  }
 
 	jira-progress-indeterminate {
-		background-color: #428bca;
+		background-color: #333;
 		&:before, &:after{
 	      content: '';
 	      position: absolute;
@@ -30,13 +32,15 @@ jira-progress {
 
 		}
 	}
+  .jira-progress-success{
+    background-color: green;
+  }
 
-
-	jira-progress-indeterminate:before {
+	jira-progress-indeterminate.animate:before {
       animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite; 
   	}
 
-    jira-progress-indeterminate:after {
+    jira-progress-indeterminate.animate:after {
       animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
       animation-delay: 1.15s; 
   	}

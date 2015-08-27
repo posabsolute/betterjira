@@ -15,7 +15,7 @@ export default class LoginForm extends Backbone.View {
 
     initialize(data) {
         this.user = data.user;
-        this.template = "auth.template.html";
+        this.template = "login.template.html";
         this.availableComponents = availableComponents;
     }
 
@@ -26,26 +26,36 @@ export default class LoginForm extends Backbone.View {
 
     save(e) {
         e && e.preventDefault();
-        var data =  this.$userForm.serializeObject();
-        this.user.set(data).save();
-        this.testConnection();
+        var data = this.$(".authForm").serializeObject();
+        this.testConnection(data);
     }
 
-    showLoggedOptions() {
-
-    }
-
-    testConnection() {
-        var userConnect = this.user.testConnection();
+    testConnection(data) {
+        var userConnect = this.user.testConnection(data);
 
         this.progressBar.show();
 
         userConnect.done(() => { 
             this.progressBar.success();
-            this.showLoggedOptions();
+            this.loadSidebar();
+            this.user.save(data);
+            Backbone.Radio.channel('notification').trigger('alert', {
+              message: "Your Jira account has been connected",
+              type:  'success'
+            });
+
+            this.hide();
             
         }).always(() => {
             this.progressBar.hide();
         });
+    }
+
+    hide(){
+        Backbone.Radio.channel('sidebar').trigger('hide');
+        window.setTimeout(()=>{
+            this.addClass('jira-hidden');
+            Backbone.Radio.channel('sidebar').trigger('show');
+        },200);
     }
 }
