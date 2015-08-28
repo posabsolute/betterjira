@@ -54,7 +54,7 @@ export default class LoginForm extends Backbone.View {
     hide(){
         Backbone.Radio.channel('sidebar').trigger('hide');
         window.setTimeout(()=>{
-            this.addClass('jira-hidden');
+            this.$el.addClass('jira-hidden');
             Backbone.Radio.channel('sidebar').trigger('show');
         },200);
     }

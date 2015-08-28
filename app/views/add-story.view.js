@@ -2,7 +2,7 @@ import UserStoryModel from '../models/story.model';
 import JiraModel from '../models/jira.model';
 import ModalTemplate from '../components/modal/modal-component';
 
-export default class AddStoryModal extends ModalTemplate {
+export default class AddStory extends Backbone.view {
   className() {return 'jira-add-story'; }
 
   events() {
@@ -14,7 +14,7 @@ export default class AddStoryModal extends ModalTemplate {
 
   constructor(...rest) {
     super(...rest);
-    this.template = '/templates/AddUserStoryModal.html';
+    this.template = '/templates/add-story.html';
   }
 
   initialize() {

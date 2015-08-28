@@ -1,7 +1,7 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
 import hotkeys from 'hotkeys';
-import AddUserStoryModal from './views/add-story.view';
+import AddStory from './views/add-story.view';
 import Sidebar from './components/sidebar.component';
 
 
@@ -13,16 +13,23 @@ export default class Router extends Backbone.Router {
                  .on('keydown','esc',     () => { this.hideModal(AuthView); });
       this.showSidebar();    
   	}
-
-  	callAuthView (){
-  		this.showModal(AuthView);
-  	}
+    routes : function(){ return {
+      "story":  "showStory",    // #help
+    }},
 
   	showSidebar (Modal){
-      this.sidebar = new Sidebar(this.user);
-      $("body").append(this.sidebar.renderHtml().$el);
+      if(!this.sidebar){
+        this.sidebar = new Sidebar(this.user);
+        $("body").append(this.sidebar.renderHtml().$el);      
+      }
       this.sidebar.show();
   	}
+
+    showStory(){
+      this.showSidebar();
+      this.addStory = new AddStory();
+      this.addStory.show();
+    }
 
   	hideModal (){
        	this.currentModal && this.currentModal.hide();		

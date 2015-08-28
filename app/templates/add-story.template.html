@@ -1,30 +1,25 @@
-<modal-jiraHeader>
-	Add user story
-</modal-JiraHeader>
-<form type="post" action="" class="storyForm">
-<modal-jiraContent>
-	<modal-jiraContentStory>
-		As a 
-		<input type="text" name="persona" value="" placeholder="persona">
-		I want 
-		<input type="text" name="goal" value="" placeholder="your goal">
-		so that
-		<input type="text" name="reason" value="" placeholder="reason">
-	</modal-jiraContentStory>
-	<modal-content>
+<jiraContentSection>
+	<form type="post" action="" class="storyForm">
 
-	<div-jira class="points">
-		<input name="business" class="jira-input" placeholder="Business Value">
-		<input name="storypoints" class="jira-input" placeholder="Story points">
-	</div-jira>
+		<textarea class="text-story" placeholder="Description" name="description">
+			As a 
+			{persona}
+			I want 
+			{action}
+			so that
+			{reason}
+		</textarea>
+		
+		<div-jira class="points">
+			<input name="business" class="jira-input" placeholder="Business Value">
+			<input name="storypoints" class="jira-input" placeholder="Story points">
+		</div-jira>
 
-	<textarea class="jira-input" placeholder="Description" name="description"></textarea>
+		<textarea class="text-writter" placeholder="Description" name="description"></textarea>
 
-	<textarea class="jira-input" placeholder="Acceptance criterias" name="acceptance"></textarea>
-	</modal-content>
-</modal-jiraContent>
-<modal-jiraFooter>
-	<button-jira class="btnJira-default btn-jira-cancel">Cancel</button-jira>
-	<button-jira class="btnJira-primary btn-jira-add-story btn-submit">Save</button-jira>
-</modal-jiraFooter>
-</form>
+		<contentFooter>
+			<button-jira class="btnJira-default btn-jira-cancel">Cancel</button-jira>
+			<button-jira class="btnJira-primary btn-jira-add-story btn-submit">Save</button-jira>
+		</contentFooter>
+	</form>
+<jiraContentSection>
