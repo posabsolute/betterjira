@@ -4,7 +4,8 @@ System.config({
   transpiler: "babel",
   babelOptions: {
     "optional": [
-      "runtime"
+      "runtime",
+      "es7.decorators"
     ]
   },
   paths: {
@@ -29,6 +30,7 @@ System.config({
     "nunjucks": "npm:nunjucks@1.3.4",
     "serializeObject": "github:hongymagic/jQuery.serializeObject@2.0.3",
     "underscore": "npm:underscore@1.8.3",
+    "universal-mixin": "npm:universal-mixin@1.0.0",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },

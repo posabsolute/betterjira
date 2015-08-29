@@ -1,6 +1,5 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
-import cocktail from 'backbone.cocktail';
 import radio from 'backbone.radio';
 import nunjucks from 'nunjucks';
 import {BackboneViewComponentsPatch} from './utils/declarative-patch.backbone';
@@ -13,6 +12,7 @@ import NotificationComponent from './components/notification.component';
 // Add components system to Backbone.View prototype
 BackboneViewComponentsPatch();
 
+
 // currentUser is unique
 var currentUser = new User();
 // The router is not used traditionnaly, routes are bound to keyboard shortcuts
@@ -21,5 +21,5 @@ var appRouter = new Router(currentUser);
 // & appended to the body
 var growler = new NotificationComponent();
 
-Backbone.history.start({pushState: true,  hashChange: false});
+Backbone.history.start({pushState: false,  hashChange: true });
 

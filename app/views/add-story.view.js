@@ -1,24 +1,20 @@
+import _ from 'underscore';
+import Backbone from 'backbone';
 import UserStoryModel from '../models/story.model';
-import JiraModel from '../models/jira.model';
-import ModalTemplate from '../components/modal/modal-component';
+import ContainerAnims from '../traits/containerAnims.trait';
 
-export default class AddStory extends Backbone.view {
+@ContainerAnims
+export default class AddStory extends Backbone.View {
   className() {return 'jira-add-story'; }
 
-  events() {
-    return {
-      'submit .storyForm': 'save',
-      'click .btn-submit': 'submitForm'
-    };
-  }
-
-  constructor(...rest) {
-    super(...rest);
-    this.template = '/templates/add-story.html';
-  }
+  events() {return {
+    'submit .storyForm': 'save',
+    'click .btn-submit': 'submitForm'
+  }}
 
   initialize() {
-    this.constructor.__super__.initialize.apply(this);
+    console.log(this);
+    this.template = '/templates/add-story.html';
   }
 
   render() {

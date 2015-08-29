@@ -13,9 +13,9 @@ export default class Router extends Backbone.Router {
                  .on('keydown','esc',     () => { this.hideModal(AuthView); });
       this.showSidebar();    
   	}
-    routes : function(){ return {
+    routes(){ return {
       "story":  "showStory",    // #help
-    }},
+    }}
 
   	showSidebar (Modal){
       if(!this.sidebar){
@@ -27,7 +27,7 @@ export default class Router extends Backbone.Router {
 
     showStory(){
       this.showSidebar();
-      this.addStory = new AddStory();
+      this.addStory = new AddStory(this.user);
       this.addStory.show();
     }
 
