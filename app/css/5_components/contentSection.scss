@@ -1,14 +1,15 @@
 
 
-jiraContentSection{
-	position:fixed;
+.content-section{
+	position:relative;
 	z-index:99999;
 	top:0; left:0;
 	height:100%;
 	margin-left:220px;
 	width:800px;
 	color:#333;
+	padding:40px;
+	box-sizing:border-box;
 	background:#fff;
-	border-right:1px solid #999;
 	font-family: Montserrat, helvetica, arial;
 }

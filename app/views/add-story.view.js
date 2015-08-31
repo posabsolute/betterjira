@@ -5,7 +5,7 @@ import ContainerAnims from '../traits/containerAnims.trait';
 
 @ContainerAnims
 export default class AddStory extends Backbone.View {
-  className() {return 'jira-add-story'; }
+  className() {return 'jira-add-story content-section'; }
 
   events() {return {
     'submit .storyForm': 'save',
@@ -13,13 +13,7 @@ export default class AddStory extends Backbone.View {
   }}
 
   initialize() {
-    console.log(this);
-    this.template = '/templates/add-story.html';
-  }
-
-  render() {
-    this.$el.html(nunjucks.render(this.template, data));
-    return this;
+    this.template = 'add-story.template.html';
   }
 
   getSummary(userStory) {

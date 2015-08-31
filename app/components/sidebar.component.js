@@ -17,7 +17,7 @@ export default class SidebarComponent extends Backbone.View {
   tagName() {return 'jira-sidebar'; }
 
   initialize(user) {
-  	this.user = user;
+    this.user = user;
     this.template = "sidebar.component.html";
     this.availableComponents = availableComponents;
 
@@ -27,12 +27,8 @@ export default class SidebarComponent extends Backbone.View {
   loadRadioEvents(){
     var notifChannel = Backbone.Radio.channel('sidebar');
 
-    notifChannel.on('hide', (data) => {
-      this.hide();
-    });
-    notifChannel.on('show', (data) => {
-      this.show();
-    });
+    notifChannel.on('hide', (data) => { this.hide(); });
+    notifChannel.on('show', (data) => { this.show(); });
   }
 
   events(){ return {
