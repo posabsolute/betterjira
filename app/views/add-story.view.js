@@ -3,7 +3,12 @@ import Backbone from 'backbone';
 import UserStoryModel from '../models/story.model';
 import ContainerAnims from '../traits/containerAnims.trait';
 
-@ContainerAnims
+@ContainerAnims // Animations used by main container views
+/** 
+ * Add story form
+ * Contains multiple components
+ * @class AddStory
+ */
 export default class AddStory extends Backbone.View {
   className() {return 'jira-add-story content-section'; }
 
@@ -15,7 +20,9 @@ export default class AddStory extends Backbone.View {
   initialize() {
     this.template = 'add-story.template.html';
   }
-
+  /** 
+   * Decapreated soon
+   */
   getSummary(userStory) {
     var persona = this.$el.find('[name="persona"]').val();
     var goal = this.$el.find('[name="goal"]').val();
@@ -24,7 +31,10 @@ export default class AddStory extends Backbone.View {
 
     return userStory.replaceDefaultSummary(persona, goal, reason);
   }
-
+  /** 
+   * Save data in a new story model
+   * Show backlog on success
+   */
   save(e) {
     e.preventDefault();
 
