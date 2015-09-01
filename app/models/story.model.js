@@ -2,9 +2,6 @@ import Backbone from 'backbone';
 import JiraModel from './jira.model';
 
 export default class StoryModel extends Backbone.Model {
-  constructor(...rest) {
-    super(...rest);
-  }
 
   initialize(user) {
     this.user = user;

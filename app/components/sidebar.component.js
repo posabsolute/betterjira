@@ -1,5 +1,3 @@
-"use strict";
-
 import _ from 'underscore';
 import Backbone from 'backbone';
 import LoginForm from './login.component';

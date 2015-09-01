@@ -1,7 +1,7 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
 import UserStoryModel from '../models/story.model';
-import ContainerAnims from '../traits/containerAnims.trait';
+import ContainerAnims from '../mixins/containerAnims.mixin';
 
 @ContainerAnims // Animations used by main container views
 /** 
