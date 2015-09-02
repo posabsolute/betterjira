@@ -4,7 +4,11 @@ import hotkeys from 'hotkeys';
 import AddStory from './views/add-story.view';
 import Sidebar from './components/sidebar.component';
 
-
+/** 
+ * User can activate plugin using the chrome extention button
+ * Sections are also available using the keyboard
+ * @class Router
+ */
 export default class Router extends Backbone.Router {
   initialize (user) {
     this.user = user;
@@ -16,15 +20,19 @@ export default class Router extends Backbone.Router {
   routes(){ return {
     "story":  "showStory",    // #help
   }}
-
-  showSidebar (Modal){
+  /** 
+   * Show the sidebar without any sections
+   */
+  showSidebar (){
     if(!this.sidebar){
       this.sidebar = new Sidebar(this.user);
       $("body").append(this.sidebar.renderHtml().$el);      
     }
     this.sidebar.show();
   }
-
+  /** 
+   * Show issue data, can also be used to add or modify an issue
+   */
   showStory(){
     this.showSidebar();
     this.addStory = new AddStory(this.user);
