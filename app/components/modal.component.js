@@ -1,7 +1,13 @@
 import Backbone from 'backbone';
-
+/** 
+ * Base view for modals
+ * Setup the basic needs for lauching & hiding a modal
+ * @class ModalComponent
+ */
 export default class ModalComponent extends Backbone.View {
-
+  /** 
+   * Base options
+   */
   constructor(...rest) {
     super(...rest);
     this.options = {
@@ -20,25 +26,18 @@ export default class ModalComponent extends Backbone.View {
   }
 
   tagName() {return 'modal-jira';}
-
+  /** 
+   * Extend view events with modal components events
+   */
   initialize() {
     $.extend(this.events, this.__proto__.__proto__.events());
     // Object.getPrototypeOf(obj)
-    this.initComponents();
     this.delegateEvents();
   }
-
-  initComponents() {
-    var $components = this.$("[component]");
-    $components.each((i, el) => {
-      var $el = $(el),
-          name = $el.attr("name"),
-          component = $el.attr("component");
-          
-      this[name] =  new window[component]({el: $el });
-    }); 
-  }
-
+  /** 
+   * Show new modal, hides older modals
+   * positioned center center
+   */
   show(settings) {
     var marginleft;
     var marginTop;
@@ -80,19 +79,17 @@ export default class ModalComponent extends Backbone.View {
       }
     });
   }
-
+  /** 
+   * Remove instantly the modal
+   */
   hideFast() {
     $('modal-jira:first').remove();
   }
-
-  submitForm(e) {
-    e && e.preventDefault();
-    this.$el.find('form').submit();
-  }
-
+  /** 
+   * Remove modal with an animation
+   */
   hide(e) {
     e && e.preventDefault();
-    console.log("colid");
     this.$el.animate({ opacity:0 }, 300, () => {
       this.remove();
     });
