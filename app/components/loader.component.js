@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 import {tagName} from '../mixins/backbone-props';
 
-/** 
+/**
  * Component used to show a full section line loder
  * @class LoaderComponent
  */
@@ -15,6 +15,7 @@ export default class LoaderComponent extends Backbone.View {
     if (options.$el) {
       this.$el = options.$el;
     }
+
     this.$el.html('<jira-progress-indeterminate></jira-progress-indeterminate>');
   }
   /**
@@ -25,7 +26,7 @@ export default class LoaderComponent extends Backbone.View {
     $parent && $parent.append(this.$el);
 
     this.$el.css({ display:'block' });
-    this.$el.find("jira-progress-indeterminate").addClass("animate");
+    this.$el.find('jira-progress-indeterminate').addClass('animate');
     this.$el.animate({ opacity:1 }, 200);
   }
   /**
@@ -33,15 +34,15 @@ export default class LoaderComponent extends Backbone.View {
     * loader becomes green for a couple of seconds & hide itself.
     */
   success() {
-    this.$el.find("jira-progress-indeterminate").removeClass("animate").addClass("jira-progress-success");
+    this.$el.find('jira-progress-indeterminate').removeClass('animate').addClass('jira-progress-success');
     this.$el.animate({ opacity:0 }, 2000);
   }
   /**
     * Hide loader but stay in the DOM
     */
   hide() {
-    this.$el.animate({ opacity:0 }, 200, ()=>{
-      this.$el.find("jira-progress-indeterminate").removeClass("animate");
+    this.$el.animate({ opacity:0 }, 200, ()=> {
+      this.$el.find('jira-progress-indeterminate').removeClass('animate');
     });
   }
 }

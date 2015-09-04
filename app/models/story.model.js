@@ -7,7 +7,7 @@ export default class StoryModel extends Backbone.Model {
     this.user = user;
   }
 
-  url (id = '') {
+  url(id = '') {
     var url = this.user.get('url');
     return `${url}/rest/api/2/issue/${id}`;
   }

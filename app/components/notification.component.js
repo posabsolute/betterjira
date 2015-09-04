@@ -1,15 +1,15 @@
 import Backbone from 'backbone';
 import {tagName} from '../mixins/backbone-props';
-/** 
+/**
  * Notifications are used to send back messages to the user
  * Visually they take the whole browser width, appear from the top of the page, like a fix header
  * the notifications system is unique & use a notification channel to receive messages.
- * 
+ *
  * @class NotificationComponent
  */
 @tagName('jira-notification')
 export default class NotificationComponent extends Backbone.View {
-  /** 
+  /**
    * When initializing we add the component to the body, stays hidden until used
    */
   initialize() {
@@ -21,23 +21,23 @@ export default class NotificationComponent extends Backbone.View {
       this.show(data);
     });
   }
-  /** 
+  /**
    * Show the notification header
    * @param {string} message - message to show the user
    * @param {string} [type=success] - Type of message, change the notification colors (success | error)
    */
   show({message, type = 'success'}) {
     this.$el.css('display', 'none');
-    this.$("jira-notification-content").html(message);
+    this.$('jira-notification-content').html(message);
     this.$el
-      .attr("class", 'jira-notification-'+type)
+      .attr('class', 'jira-notification-' + type)
       .slideDown(200);
 
-    setTimeout(() =>{
+    setTimeout(() => {
       this.hide();
-    },5000);
+    }, 5000);
   }
-  /** 
+  /**
    * Hide the notification header
    */
   hide() {
