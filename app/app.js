@@ -6,7 +6,7 @@ import {backboneViewComponentsPatch} from './utils/declarative-patch.backbone';
 
 import templates from './templates/templates';
 import Router from './router';
-import User from './models/jira.model';
+import User from './models/user.model';
 import NotificationComponent from './components/notification.component';
 
 // Add components system to Backbone.View prototype

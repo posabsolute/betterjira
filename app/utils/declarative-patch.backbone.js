@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 
-export function BackboneViewComponentsPatch() {
+export function backboneViewComponentsPatch() {
 
   // Initialize declarative view system.
   Backbone.View.prototype.initializeViewComponents = function() {

@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 import serializeObject from 'serializeObject';
 import Loader from './loader.component';
-import {template, components} from '../mixins/backbone-props';
+import {template, components, on} from '../mixins/backbone-props';
 
 /**
  * The login form generally sit in the sidebar
@@ -16,7 +16,7 @@ export default class LoginForm extends Backbone.View {
    * @param {object} userData - user model data, used to prefill the form
    */
   initialize(userData) {
-    this.user = data.user;
+    this.user = userData.user;
   }
   /**
    * Submig login form

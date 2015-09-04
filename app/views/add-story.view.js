@@ -2,7 +2,7 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 import UserStoryModel from '../models/story.model';
 import ContainerAnims from '../mixins/containerAnims.mixin';
-import {template, components, className} from '../mixins/backbone-props';
+import {template, components, className, on} from '../mixins/backbone-props';
 
 /**
  * Add story form

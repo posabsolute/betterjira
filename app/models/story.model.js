@@ -1,5 +1,5 @@
 import Backbone from 'backbone';
-import JiraModel from './jira.model';
+import User from './user.model';
 
 export default class StoryModel extends Backbone.Model {
 

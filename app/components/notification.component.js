@@ -1,5 +1,5 @@
 import Backbone from 'backbone';
-import {tagName} from '../mixins/backbone-props';
+import {tagName, on} from '../mixins/backbone-props';
 /**
  * Notifications are used to send back messages to the user
  * Visually they take the whole browser width, appear from the top of the page, like a fix header

@@ -1,7 +1,7 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
 import LoginForm from './login.component';
-import {tagName, template, components} from '../mixins/backbone-props';
+import {tagName, template, components, on} from '../mixins/backbone-props';
 
 const width = {
   sidebarSmall: 220,
