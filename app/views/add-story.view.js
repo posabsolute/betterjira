@@ -2,24 +2,17 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 import UserStoryModel from '../models/story.model';
 import ContainerAnims from '../mixins/containerAnims.mixin';
+import {template, components} from '../mixins/backbone-props';
 
-@ContainerAnims // Animations used by main container views
 /** 
  * Add story form
  * Contains multiple components
  * @class AddStory
  */
-export default class AddStory extends Backbone.View {
-  className() {return 'jira-add-story content-section'; }
-
-  events() {return {
-    'submit .storyForm': 'save',
-    'click .btn-submit': 'submitForm'
-  }}
-
-  initialize() {
-    this.template = 'add-story.template.html';
-  }
+@ContainerAnims // Animations used by main container views
+@template('add-story.template.html')
+@className('jira-add-story content-section')
+export default class AddStory extends Backbone.View {\
   /** 
    * Decapreated soon
    */
@@ -35,6 +28,7 @@ export default class AddStory extends Backbone.View {
    * Save data in a new story model
    * Show backlog on success
    */
+  @on('submit .storyForm')
   save(e) {
     e.preventDefault();
 

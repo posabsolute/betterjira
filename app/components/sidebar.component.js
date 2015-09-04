@@ -1,33 +1,28 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
 import LoginForm from './login.component';
+import {tagName, template, components} from '../mixins/backbone-props';
 
 const width = {
   sidebarSmall : 220,
   sidebarFormConnection : 400
-}
-
-// Components defined here can be auto-loaded when this view is rendered
-const availableComponents = {
-  'LoginForm' : LoginForm
-}
+};
 /** 
  * The sidebar sits outside of the browser view & can be shown by using the chrome extention button or using ctrl-q
  * Contains menu & login form
  * @class SidebarComponent
  */
+@tagName('jira-sidebar')
+@template('sidebar.component.html')
+@components({'LoginForm': LoginForm}) // Components defined here can be auto-loaded when this view is rendered
 export default class SidebarComponent extends Backbone.View {
-
-  tagName() {return 'jira-sidebar'; }
   /** 
    * Basic view setup
    * @param {object} user - user model, used to know if we need to show the menu or the login form
    */
   initialize(user) {
     this.user = user;
-    this.template = "sidebar.component.html";
-    this.availableComponents = availableComponents;
-    this.loadChannelEvents()
+    this.loadChannelEvents();
   }
   /** 
    * Open event channel so other components can show & hide the sidebar
@@ -38,10 +33,6 @@ export default class SidebarComponent extends Backbone.View {
     notifChannel.on('hide', (data) => { this.hide(); });
     notifChannel.on('show', (data) => { this.show(); });
   }
-
-  events(){ return {
-    "click jira-close-link" : "hide"
-  }}
   /** 
    * Show sidebar from the left, also verify if the user is connected
    */
@@ -87,14 +78,15 @@ export default class SidebarComponent extends Backbone.View {
     }else{
       this.$el
         .animate({
-          "margin-left":  -this.$el.outerWidth(),
+          "margin-left":  -this.$el.outerWidth()
         },200)
-        .addClass("hidden")
+        .addClass("hidden");
     }
   }
   /** 
    * hide sidebar
    */
+  @on('click jira-close-link')
   hide() {
     this.animate("out");
   }

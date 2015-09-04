@@ -2,7 +2,7 @@
 
 	<form type="post" action="" class="storyForm">
 
-		<textarea class="text-story" placeholder="Description" name="description">
+		<textarea class="text-story" placeholder="Description" name="description" id="storyDescription">
 			As a 
 			{persona}
 			I want 
@@ -10,6 +10,7 @@
 			so that
 			{reason}
 		</textarea>
+		<dropdownHelper data-collection="personas" data-input="#storyDescription"></dropdownHelper>
 
 		<div-jira class="points">
 			<input name="business" class="jira-input" placeholder="Business Value">

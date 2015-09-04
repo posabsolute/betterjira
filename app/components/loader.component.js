@@ -1,13 +1,12 @@
 import Backbone from 'backbone';
+import {tagName} from '../mixins/backbone-props';
 
 /** 
  * Component used to show a full section line loder
  * @class LoaderComponent
  */
+@tagName('jira-progress')
 export default class LoaderComponent extends Backbone.View {
-
-  tagName() {return 'jira-progress'; }
-
   /**
     * When initializing the loader we setup the loader using the component system
     * @param {object} options - when a $el is defined the loader is attached to this element

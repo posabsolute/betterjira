@@ -60,7 +60,9 @@
     "sub"           : false,     // true: Tolerate using `[]` notation when it can still be expressed in dot notation
     "supernew"      : false,     // true: Tolerate `new function () { ... };` and `new Object;`
     "validthis"     : false,     // true: Tolerate using this in a non-constructor function
-
+    "ignoreDelimiters": [
+        { "start": "decorators", "end": "/end" }
+    ],
     // Environments
     "browser"       : true,     // Web Browser (window, document, etc)
     "couch"         : false,    // CouchDB

@@ -1,9 +1,11 @@
 import Backbone from 'backbone';
+import {tagName} from '../mixins/backbone-props';
 /** 
  * Base view for modals
  * Setup the basic needs for lauching & hiding a modal
  * @class ModalComponent
  */
+@tagName('modal-jira')
 export default class ModalComponent extends Backbone.View {
   /** 
    * Base options
@@ -18,14 +20,6 @@ export default class ModalComponent extends Backbone.View {
       topAnim: 50
     };
   }
-
-  events() {
-    return {
-      "click .btn-jira-cancel" : "hide"
-    };
-  }
-
-  tagName() {return 'modal-jira';}
   /** 
    * Extend view events with modal components events
    */
@@ -88,6 +82,7 @@ export default class ModalComponent extends Backbone.View {
   /** 
    * Remove modal with an animation
    */
+  @on('click .btn-jira-cancel')
   hide(e) {
     e && e.preventDefault();
     this.$el.animate({ opacity:0 }, 300, () => {

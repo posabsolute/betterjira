@@ -1,4 +1,5 @@
 import Backbone from 'backbone';
+import {tagName} from '../mixins/backbone-props';
 /** 
  * Notifications are used to send back messages to the user
  * Visually they take the whole browser width, appear from the top of the page, like a fix header
@@ -6,9 +7,8 @@ import Backbone from 'backbone';
  * 
  * @class NotificationComponent
  */
+@tagName('jira-notification')
 export default class NotificationComponent extends Backbone.View {
-
-  tagName() {return 'jira-notification'; }
   /** 
    * When initializing we add the component to the body, stays hidden until used
    */
