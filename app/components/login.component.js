@@ -8,7 +8,7 @@ import {template, components, on} from '../mixins/backbone-props';
  * data is saved in the user model
  * @class LoginForm
  */
-@template('login.template.html')
+@template('components/login.template.html')
 @components({'Loader' : Loader})
 export default class LoginForm extends Backbone.View {
   /**
@@ -17,6 +17,7 @@ export default class LoginForm extends Backbone.View {
    */
   initialize(userData) {
     this.user = userData.user;
+    console.log(Backbone)
   }
   /**
    * Submig login form
@@ -47,7 +48,6 @@ export default class LoginForm extends Backbone.View {
 
     userConnect.done(() => {
       this.progressBar.success();
-      this.loadSidebar();
       this.user.save(data);
       this.hide();
 

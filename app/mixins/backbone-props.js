@@ -1,7 +1,8 @@
 import _ from 'underscore';
+import Backbone from 'backbone';
 /**
  * Define backbone class props
- * makes a nice class definition
+ * prettier class definition using decorators
  */
 export function tagName(value) {
   return function decorator(target) {
@@ -43,6 +44,43 @@ export function on(eventName) {
     }
 
     target.events[eventName] = name;
+    return descriptor;
+  };
+}
+
+export function radio(channel, eventName) {
+  return function(target, name, descriptor) {
+    if (!target.radioEvents) {
+      target.radioEvents = {};
+    }
+
+    if (_.isFunction(target.radioEvents)) {
+      throw new Error('The on decorator is not compatible with an events method');
+      return;
+    }
+
+    if (!eventName || !channel) {
+      throw new Error('The on decorator requires an eventName argument');
+    }
+
+    target.radioEvents[eventName + ' ' + name] = channel;
+    return descriptor;
+  };
+}
+
+
+export function route(routeName) {
+  return function(target, name, descriptor) {
+    if (!target.routes) {
+      target.routes = {};
+    }
+
+    if (_.isFunction(target.events)) {
+      throw new Error('The route decorator is not compatible with an events method');
+      return;
+    }
+
+    target.routes[routeName] = name;
     return descriptor;
   };
 }

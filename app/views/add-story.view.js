@@ -10,7 +10,7 @@ import {template, components, className, on} from '../mixins/backbone-props';
  * @class AddStory
  */
 @ContainerAnims // Animations used by main container views
-@template('add-story.template.html')
+@template('views/add-story.template.html')
 @className('jira-add-story content-section')
 export default class AddStory extends Backbone.View {
   /**

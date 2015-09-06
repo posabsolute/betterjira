@@ -1,7 +1,7 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
 import LoginForm from './login.component';
-import {tagName, template, components, on} from '../mixins/backbone-props';
+import {tagName, template, components, on, radio} from '../mixins/backbone-props';
 
 const width = {
   sidebarSmall: 220,
@@ -13,7 +13,7 @@ const width = {
  * @class SidebarComponent
  */
 @tagName('jira-sidebar')
-@template('sidebar.component.html')
+@template('components/sidebar.component.html')
 @components({'LoginForm': LoginForm}) // Components defined here can be auto-loaded when this view is rendered
 export default class SidebarComponent extends Backbone.View {
   /**
@@ -22,20 +22,12 @@ export default class SidebarComponent extends Backbone.View {
    */
   initialize(user) {
     this.user = user;
-    this.loadChannelEvents();
-  }
-  /**
-   * Open event channel so other components can show & hide the sidebar
-   */
-  loadChannelEvents() {
-    var notifChannel = Backbone.Radio.channel('sidebar');
-
-    notifChannel.on('hide', (data) => { this.hide(); });
-    notifChannel.on('show', (data) => { this.show(); });
+    this.setRadioEvents.call(this);
   }
   /**
    * Show sidebar from the left, also verify if the user is connected
    */
+  @radio('sidebar', 'show')
   show() {
     if (this.user.isConnected()) {
       this.showMenu();
@@ -71,7 +63,7 @@ export default class SidebarComponent extends Backbone.View {
       this.$el
         .css({
           'margin-left': -width,
-          width : width,
+          width: width,
         })
         .removeClass('hidden')
         .animate({'margin-left':0}, 200);
@@ -87,6 +79,7 @@ export default class SidebarComponent extends Backbone.View {
    * hide sidebar
    */
   @on('click jira-close-link')
+  @radio('sidebar', 'hide')
   hide() {
     this.animate('out');
   }

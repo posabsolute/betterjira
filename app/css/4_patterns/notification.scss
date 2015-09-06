@@ -1,20 +1,29 @@
 jira-notification {
   position: fixed;
   display: none;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 0; left: 0;
   z-index: 999999;
-  color: #fff;
   font-size: 17px;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0);
-  background: #2ea91a;
-  height: 55px;
-  line-height: 55px;
+  width:640px;
+  left: 50%;
+  margin-left: -320px;
   text-align: center;
 }
+  jira-notification-content{
+    display: inline-block;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.25),0 0 1px rgba(0,0,0,0.35);
+    border-radius: 0 0 4px 4px;
+    padding: 12px 25px;
+    background: rgba(255,255,255,0.97);
+    color: rgba(0,0,0,0.8);
+  }
 
-.jira-notification-error{
-  background: #ff5f5f;
+  .jira-notification-error{
+    jira-notification-content{
+      background: #cc5454;
+      color: #fff;
+    }
+
 }

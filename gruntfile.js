@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     nunjucks: {
       precompile: {
         baseDir: 'app/templates',
-        src: ['app/templates/*.html','app/components/**/*.html','app/layouts/**/*.html'],
+        src: ['app/templates/**/*.html','app/components/**/*.html','app/layouts/**/*.html'],
         dest: 'app/templates/templates.js'
       }
     },

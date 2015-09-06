@@ -3,6 +3,7 @@ import Backbone from 'backbone';
 import hotkeys from 'hotkeys';
 import AddStory from './views/add-story.view';
 import Sidebar from './components/sidebar.component';
+import {route} from './mixins/backbone-props';
 
 /**
  * User can activate plugin using the chrome extention button
@@ -16,11 +17,19 @@ export default class Router extends Backbone.Router {
                .on('keydown', 'shift+a', () => { this.showModal(AuthView); })
                .on('keydown', 'esc',     () => { this.hideModal(AuthView); });
     this.showSidebar();
+    this.initNavigator();
   }
-
-  routes() { return {
-    story:  'showStory',    // #help
-  }; }
+  /**
+   * link css class utils to router navigate
+   */
+  initNavigator() {
+    $(document).on('click', '.btn-navigate', (e)=> {
+      e.preventDefault();
+      console.log(e);
+      var url = $(e.currentTarget).attr('href');
+      this.navigate(url, {trigger: true});
+    });
+  }
   /**
    * Show the sidebar without any sections
    */
@@ -35,6 +44,7 @@ export default class Router extends Backbone.Router {
   /**
    * Show issue data, can also be used to add or modify an issue
    */
+  @route('story')
   showStory() {
     this.showSidebar();
     this.addStory = new AddStory(this.user);

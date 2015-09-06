@@ -17,7 +17,7 @@ var currentUser = new User();
 
 // The router is not used traditionnaly, routes are bound to keyboard shortcuts
 var appRouter = new Router(currentUser);
-
+Backbone.Radio.log('sidebar');
 // Notification component is unique, it's used with the 'notification' channel
 // & appended to the body
 var growler = new NotificationComponent();

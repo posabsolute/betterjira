@@ -22,10 +22,21 @@ export function backboneViewComponentsPatch() {
     });
   };
 
+  Backbone.View.prototype.setRadioEvents = function() {
+
+    for (var events in this.radioEvents) {
+      if (this.radioEvents.hasOwnProperty(events)) {
+        let method = events.split(' ');
+        let notifChannel = Backbone.Radio.channel(this.radioEvents[events]);
+
+        notifChannel.on(method[0], () => { this[method[1]](); });
+
+      }
+    }
+  };
+
   // default view render function including component init
   Backbone.View.prototype.renderHtml = function(data) {
-    console.log(this.$el);
-    console.log(this.template);
     this.$el.html(nunjucks.render(this.template, data));
     this.initializeViewComponents();
     return this;
