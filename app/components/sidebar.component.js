@@ -7,6 +7,7 @@ const width = {
   sidebarSmall: 220,
   sidebarFormConnection: 400,
 };
+
 /**
  * The sidebar sits outside of the browser view & can be shown by using the chrome extention button or using ctrl-q
  * Contains menu & login form
@@ -21,6 +22,7 @@ export default class SidebarComponent extends Backbone.View {
    * @param {object} user - user model, used to know if we need to show the menu or the login form
    */
   initialize(user) {
+
     this.user = user;
     this.setRadioEvents.call(this);
   }

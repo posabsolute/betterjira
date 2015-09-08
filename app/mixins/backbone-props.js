@@ -28,6 +28,12 @@ export function template(value) {
   };
 }
 
+export function model(value) {
+  return function decorator(target) {
+    target.prototype.model = value;
+  };
+}
+
 export function on(eventName) {
   return function(target, name, descriptor) {
     if (!target.events) {

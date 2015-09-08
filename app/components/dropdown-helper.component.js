@@ -1,5 +1,10 @@
 import Backbone from 'backbone';
 import {tagName, on} from '../mixins/backbone-props';
+import Personas from '../collections/personas.collection';
+
+const collections = {
+  Personas: Personas,
+};
 
 /**
  * The dropdown component is use to help the user go faster in writting context.
@@ -7,16 +12,15 @@ import {tagName, on} from '../mixins/backbone-props';
  *
  * @class DropdownHelperComponent
  */
-@tagName('dropdownHelper')
 export default class DropdownHelperComponent extends Backbone.View {
   /**
    *
    */
   initialize() {
-    this.inputID = this.$el.data('input');
-    this.$input = $(inputID);
-    this.setup && this.setup();
-    this.collection = this.$el.data('personas');
+    var inputID = this.$el.data('input');
+    this.$input = jQuery(inputID);
+    console.log(jQuery(inputID).attr("placeholder"));
+    this.collection = new collections[this.$el.data('collection')]();
     this.inputListener();
   }
   /**
@@ -29,8 +33,11 @@ export default class DropdownHelperComponent extends Backbone.View {
    * Setup event to listen to input text change
    */
   inputListener() {
-    var ChannelName = this.$input.attr('id');
-    this.listenTo(Backbone.Radio, ChannelName = ':change', this.autoShow);
+    this.$input.val("fucj");
+    this.$input.on('change', ()=> {
+      console.log("guck");
+      this.autoShow();
+    });
 
   }
   /**
@@ -38,6 +45,7 @@ export default class DropdownHelperComponent extends Backbone.View {
    * conditions are set by the collection type
    */
   autoShow() {
+    console.log('yup');
     var writtenText = this.$input.attr('value');
     if (writtenText === this.collection.showDropdownText) {
       this.show();

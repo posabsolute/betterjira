@@ -2,6 +2,7 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 import UserStoryModel from '../models/story.model';
 import ContainerAnims from '../mixins/containerAnims.mixin';
+import DropdownHelperComponent from '../components/dropdown-helper.component';
 import {template, components, className, on} from '../mixins/backbone-props';
 
 /**
@@ -12,6 +13,7 @@ import {template, components, className, on} from '../mixins/backbone-props';
 @ContainerAnims // Animations used by main container views
 @template('views/add-story.template.html')
 @className('jira-add-story content-section')
+@components({'DropdownHelperComponent': DropdownHelperComponent})
 export default class AddStory extends Backbone.View {
   /**
    * Decapreated soon

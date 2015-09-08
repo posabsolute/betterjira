@@ -17,7 +17,6 @@ export default class LoginForm extends Backbone.View {
    */
   initialize(userData) {
     this.user = userData.user;
-    console.log(Backbone)
   }
   /**
    * Submig login form

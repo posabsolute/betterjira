@@ -1,5 +1,5 @@
 import Backbone from 'backbone';
-import User from './user.model';
+import defaultPersonas from './user.model';
 
 export default class StoryModel extends Backbone.Model {
 
