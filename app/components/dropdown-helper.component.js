@@ -53,22 +53,16 @@ export default class DropdownHelperComponent extends Backbone.View {
     var caretPos = this.$input.getCaretPosition();
 
     // verify if we are writting a new word
-    if(this.active){
-      if (!this.getCurrentWrittenWord(writtenText, caretPos)) {
-        console.log(this.getCurrentWrittenWord(writtenText, caretPos))
-        this.hide();
-        this.active = false;
-      }
+    if (this.active && !this.getCurrentWrittenWord(writtenText, caretPos)) {
+      this.symbolMode && this.removeSymbols(writtenText, caretPos);
+      this.hide();
+      this.active = false;
+      this.symbolMode = false;
     }
 
     // conditions that shows dropdown
-    if (this.checkBeforeText(writtenText, caretPos)) {
-      this.active = true;
-    }
-
-    if (this.collection.showDropdownRegEx.test(writtenText)) {
-      this.active = true;
-    }
+    this.verifySymbol(writtenText, caretPos);
+    this.verifyBeforeText(writtenText, caretPos);
 
     // show dropdown
     if (this.active) {
@@ -76,26 +70,46 @@ export default class DropdownHelperComponent extends Backbone.View {
     }
   }
 
-  checkBeforeText(text, caretPos) {
+  verifyBeforeText(text, caretPos) {
     var textLength = this.collection.showDropdownText.length;
-
     var textBeforeCaret = text.slice(caretPos - textLength, caretPos);
 
     if (textBeforeCaret === this.collection.showDropdownText) {
-      return true;
+      this.active = true;
     }
   }
 
-  getCurrentWrittenWord(text, caretPos) {
+  verifySymbol(text, caretPos) {
+    var currentWord = this.getCurrentWrittenWord(writtenText, caretPos);
+    var firstLetters = currentWord.slice(0, this.collection.showDropdownSymbol.length);
+
+    if (firstLetters === this.collection.showDropdownSymbol) {
+      this.active = true;
+      this.symbolMode = true;
+    }
+
+  }
+
+  getLastWrittenWord(text, caretPos) {
     var beforeText = text.slice(0, caretPos);
-    var lastWord = beforeText.split(' ').pop();
+    var lastWord = beforeText.split(' ')[beforeText.length - 2];
 
     return lastWord;
   }
 
+  getCurrentWrittenWord(text, caretPos) {
+    var beforeText = text.slice(0, caretPos);
+    var currentWord = beforeText.split(' ').pop();
+
+    return currentWord;
+  }
+
+  removeSymbols(writtenText, caretPos) {
+    var lastWord = this.getLastWrittenWord(text, caretPos);
+  }
+
   showDropdown(text, caretPos) {
     var filterText = this.getCurrentWrittenWord(text, caretPos);
-    console.log(this.collection.search(filterText).toJSON());
     this.show({
       collection: this.collection.search(filterText).toJSON(),
     });

@@ -11,7 +11,8 @@ export default class Personas extends Backbone.Collection {
   initialize() {
     // setup configs for the dropdown helper
     this.showDropdownText = 'As a ';
-    this.showDropdownRegEx = /::P/g;
+    this.showDropdownSymbol = "::";
+    this.transformSymbol = false;
     this.showDropdownKeys = 'ctrl+p';
 
     this.setDefaults();
@@ -27,7 +28,7 @@ export default class Personas extends Backbone.Collection {
     var filtered = this.filter(function(data) {
       return pattern.test(data.get('archetype'));
     });
-    
+
     return new Personas(filtered);
   }
 
