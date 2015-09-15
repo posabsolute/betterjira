@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import Backbone from 'backbone';
 import Persona from '../models/persona.model';
 import defaultPersonas from './studs/default.personas';
@@ -9,7 +10,7 @@ import {model} from '../mixins/backbone-props';
 export default class Personas extends Backbone.Collection {
   initialize() {
     // setup configs for the dropdown helper
-    this.showDropdownText = 'As a';
+    this.showDropdownText = 'As a ';
     this.showDropdownRegEx = /::P/g;
     this.showDropdownKeys = 'ctrl+p';
 
@@ -18,6 +19,16 @@ export default class Personas extends Backbone.Collection {
 
   setDefaults() {
     this.set(defaultPersonas, {parse: true});
+  }
+
+  search(letters) {
+    if (!letters) return this;
+    var pattern = new RegExp(letters,'gi');
+    var filtered = this.filter(function(data) {
+      return pattern.test(data.get('archetype'));
+    });
+    
+    return new Personas(filtered);
   }
 
   getPersonas() {

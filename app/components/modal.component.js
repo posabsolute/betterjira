@@ -8,26 +8,18 @@ import {tagName, on} from '../mixins/backbone-props';
 @tagName('modal-jira')
 export default class ModalComponent extends Backbone.View {
   /**
-   * Base options
+   * Extend view events with modal components events
    */
-  constructor(...rest) {
-    super(...rest);
-    var one = 'sdfsdf';
-    var two = 'sdfsdf';
+  initialize() {
+    $.extend(this.events, this.__proto__.__proto__.events());
 
     this.options = {
       width: 560,
       content: '',
       topOffset: 0,
       position: 'fixed',
-      topAnim: 50
+      topAnim: 50,
     };
-  }
-  /**
-   * Extend view events with modal components events
-   */
-  initialize() {
-    $.extend(this.events, this.__proto__.__proto__.events());
 
     // Object.getPrototypeOf(obj)
     this.delegateEvents();
@@ -56,7 +48,7 @@ export default class ModalComponent extends Backbone.View {
 
       this.$el.css({
         marginTop: marginTop,
-        marginLeft: marginleft
+        marginLeft: marginleft,
       });
 
     }else {
@@ -64,13 +56,13 @@ export default class ModalComponent extends Backbone.View {
       marginleft = -parseInt($dialog.width() / 2, 10);
       this.$el.css({
         top: $(window).scrollTop() + 50,
-        marginLeft: marginleft
+        marginLeft: marginleft,
       });
     }
 
     this.$el.animate({
       opacity: 1,
-      marginTop: (marginTop + options.topAnim)
+      marginTop: (marginTop + options.topAnim),
     }, 300, function() {
       if (!$firstField.hasClass('no-focus') || !$firstField.val()) {
         $firstField.focus();

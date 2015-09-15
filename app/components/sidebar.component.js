@@ -22,9 +22,7 @@ export default class SidebarComponent extends Backbone.View {
    * @param {object} user - user model, used to know if we need to show the menu or the login form
    */
   initialize(user) {
-
     this.user = user;
-    this.setRadioEvents.call(this);
   }
   /**
    * Show sidebar from the left, also verify if the user is connected

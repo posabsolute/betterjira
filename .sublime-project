@@ -1,0 +1,5 @@
+{
+    "ternjs": {
+        "exclude": ["dist/**", "node_modules/**"],
+    }
+}

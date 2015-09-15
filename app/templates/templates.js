@@ -1,3 +1,41 @@
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["components/dropdown-helper.template.html"] = (function() {function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+output += "<div class=\"dp-helper\">\n\t";
+frame = frame.push();
+var t_3 = runtime.contextOrFrameLookup(context, frame, "collection");
+if(t_3) {var t_2 = t_3.length;
+for(var t_1=0; t_1 < t_3.length; t_1++) {
+var t_4 = t_3[t_1];
+frame.set("item", t_4);
+frame.set("loop.index", t_1 + 1);
+frame.set("loop.index0", t_1);
+frame.set("loop.revindex", t_2 - t_1);
+frame.set("loop.revindex0", t_2 - t_1 - 1);
+frame.set("loop.first", t_1 === 0);
+frame.set("loop.last", t_1 === t_2 - 1);
+frame.set("loop.length", t_2);
+output += "\n  \t\t<li>";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"archetype", env.opts.autoescape), env.opts.autoescape);
+output += "</li>\n\t";
+;
+}
+}
+frame = frame.pop();
+output += "\n</ul>\n</div>";
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+})();
+})();
 (function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["components/login.template.html"] = (function() {function root(env, context, frame, runtime, cb) {
 var lineno = null;
 var colno = null;
@@ -45,7 +83,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<jiraContentSection>\n\n\t<form type=\"post\" action=\"\" class=\"storyForm\">\n\n\t\t<textarea class=\"no-design\" placeholder=\"Your story title\" name=\"description\" id=\"storyDescription\"></textarea>\n\t\t<dropdownHelper component=\"DropdownHelperComponent\" data-collection=\"Personas\" data-input=\"#storyDescription\"></dropdownHelper>\n\n\t\t<div-jira class=\"points\">\n\t\t\t<input name=\"business\" class=\"jira-input\" placeholder=\"Business Value\">\n\t\t\t<input name=\"storypoints\" class=\"jira-input\" placeholder=\"Story points\">\n\t\t</div-jira>\n\n\t\t<textarea class=\"text-writter\" placeholder=\"Description\" name=\"description\"></textarea>\n\n\t\t<contentFooter>\n\t\t\t<button-jira class=\"btnJira-default btn-jira-cancel\">Cancel</button-jira>\n\t\t\t<button-jira class=\"btnJira-primary btn-jira-add-story btn-submit\">Save</button-jira>\n\t\t</contentFooter>\n\t</form>\n<jiraContentSection>";
+output += "<jiraContentSection>\n\n\t<form type=\"post\" action=\"\" class=\"storyForm\">\n\n\t\t<textarea class=\"no-design\" placeholder=\"Your story title\" name=\"description\" id=\"storyDescription\">asd</textarea>\n\t\t<dropdownHelper component=\"DropdownHelperComponent\" data-collection=\"Personas\" data-input=\"#storyDescription\"></dropdownHelper>\n\n\t\t<div-jira class=\"points\">\n\t\t\t<input name=\"business\" class=\"jira-input\" placeholder=\"Business Value\">\n\t\t\t<input name=\"storypoints\" class=\"jira-input\" placeholder=\"Story points\">\n\t\t</div-jira>\n\n\t\t<textarea class=\"text-writter\" placeholder=\"Description\" name=\"description\"></textarea>\n\n\t\t<contentFooter>\n\t\t\t<button-jira class=\"btnJira-default btn-jira-cancel\">Cancel</button-jira>\n\t\t\t<button-jira class=\"btnJira-primary btn-jira-add-story btn-submit\">Save</button-jira>\n\t\t</contentFooter>\n\t</form>\n<jiraContentSection>";
 cb(null, output);
 ;
 } catch (e) {

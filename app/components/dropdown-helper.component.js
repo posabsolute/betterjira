@@ -1,5 +1,7 @@
 import Backbone from 'backbone';
-import {tagName, on} from '../mixins/backbone-props';
+import caretUtil from 'caret';
+import rangeUtil from 'timdown/rangyinputs';
+import {tagName, on, template} from '../mixins/backbone-props';
 import Personas from '../collections/personas.collection';
 
 const collections = {
@@ -12,30 +14,32 @@ const collections = {
  *
  * @class DropdownHelperComponent
  */
+@template('components/dropdown-helper.template.html')
 export default class DropdownHelperComponent extends Backbone.View {
   /**
-   *
+   * Setup input events and collections
    */
-  initialize() {
+  initialize(options) {
+    this.parent = options.parent;
     var inputID = this.$el.data('input');
-    this.$input = jQuery(inputID);
-    console.log(jQuery(inputID).attr("placeholder"));
+    this.$input = this.parent.$(inputID);
+
     this.collection = new collections[this.$el.data('collection')]();
+    this.renderHtml();
     this.inputListener();
   }
   /**
    * Show the notification header
    */
-  show() {
-
+  show(data) {
+    this.$el.css('display', 'block');
+    this.renderHtml(data);
   }
   /**
    * Setup event to listen to input text change
    */
   inputListener() {
-    this.$input.val("fucj");
-    this.$input.on('change', ()=> {
-      console.log("guck");
+    this.$input.on('change keyup paste', ()=> {
       this.autoShow();
     });
 
@@ -45,15 +49,56 @@ export default class DropdownHelperComponent extends Backbone.View {
    * conditions are set by the collection type
    */
   autoShow() {
-    console.log('yup');
-    var writtenText = this.$input.attr('value');
-    if (writtenText === this.collection.showDropdownText) {
-      this.show();
+    var writtenText = this.$input.val();
+    var caretPos = this.$input.getCaretPosition();
+
+    // verify if we are writting a new word
+    if(this.active){
+      if (!this.getCurrentWrittenWord(writtenText, caretPos)) {
+        console.log(this.getCurrentWrittenWord(writtenText, caretPos))
+        this.hide();
+        this.active = false;
+      }
+    }
+
+    // conditions that shows dropdown
+    if (this.checkBeforeText(writtenText, caretPos)) {
+      this.active = true;
     }
 
     if (this.collection.showDropdownRegEx.test(writtenText)) {
-      this.show();
+      this.active = true;
     }
+
+    // show dropdown
+    if (this.active) {
+      this.showDropdown(writtenText, caretPos);
+    }
+  }
+
+  checkBeforeText(text, caretPos) {
+    var textLength = this.collection.showDropdownText.length;
+
+    var textBeforeCaret = text.slice(caretPos - textLength, caretPos);
+
+    if (textBeforeCaret === this.collection.showDropdownText) {
+      return true;
+    }
+  }
+
+  getCurrentWrittenWord(text, caretPos) {
+    var beforeText = text.slice(0, caretPos);
+    var lastWord = beforeText.split(' ').pop();
+
+    return lastWord;
+  }
+
+  showDropdown(text, caretPos) {
+    var filterText = this.getCurrentWrittenWord(text, caretPos);
+    console.log(this.collection.search(filterText).toJSON());
+    this.show({
+      collection: this.collection.search(filterText).toJSON(),
+    });
   }
   /**
    * Set dropdown selection in the input at the caret position, or selected text
@@ -65,8 +110,6 @@ export default class DropdownHelperComponent extends Backbone.View {
    * Hide the notification header
    */
   hide() {
-    this.$el.slideUp(200, () => {
-      this.$el.css('display', 'none');
-    });
+    this.$el.css('display', 'none');
   }
 }

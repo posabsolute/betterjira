@@ -21,6 +21,8 @@ System.config({
     "backbone.cocktail": "npm:backbone.cocktail@0.5.10",
     "backbone.radio": "npm:backbone.radio@1.0.0",
     "backbone.wreqr": "github:marionettejs/backbone.wreqr@1.3.3",
+    "caret": "github:garyharan/jQuery-caret-utilities@master",
+    "caretPosition": "github:ichord/Caret.js@0.2.2",
     "cocktail": "npm:cocktail@0.7.1",
     "core-js": "npm:core-js@0.9.6",
     "garyharan/jQuery-caret-utilities": "github:garyharan/jQuery-caret-utilities@master",
@@ -31,6 +33,7 @@ System.config({
     "marionette": "github:marionettejs/backbone.marionette@2.4.2",
     "nunjucks": "npm:nunjucks@1.3.4",
     "serializeObject": "github:hongymagic/jQuery.serializeObject@2.0.3",
+    "timdown/rangyinputs": "github:timdown/rangyinputs@1.2.0",
     "underscore": "npm:underscore@1.8.3",
     "universal-mixin": "npm:universal-mixin@1.0.0",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -340,7 +343,6 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "isarray": "npm:isarray@0.0.1",
       "process": "github:jspm/nodelibs-process@0.1.1",
-      "stream": "github:jspm/nodelibs-stream@0.1.0",
       "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31"
     },

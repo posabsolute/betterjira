@@ -10,7 +10,7 @@ export function backboneViewComponentsPatch() {
       var name = $el.attr('name');
       var initVars = $el.attr('initVars') ? $el.attr('initVars').split(',') : '';
       var component = $el.attr('component');
-      var options  = {el: $el };
+      var options  = {el: $el, parent:this };
 
       if (initVars) {
         initVars.forEach((data)=> {
@@ -23,7 +23,9 @@ export function backboneViewComponentsPatch() {
   };
 
   // default view render function including component init
-  Backbone.View.prototype.renderHtml = function(data) {
+  Backbone.View.prototype.renderHtml = function(data, data2) {
+    console.log(data);
+    console.log(this)
     this.$el.html(nunjucks.render(this.template, data));
     this.initializeViewComponents();
     return this;

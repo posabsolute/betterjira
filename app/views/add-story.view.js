@@ -14,6 +14,7 @@ import {template, components, className, on} from '../mixins/backbone-props';
 @template('views/add-story.template.html')
 @className('jira-add-story content-section')
 @components({'DropdownHelperComponent': DropdownHelperComponent})
+
 export default class AddStory extends Backbone.View {
   /**
    * Decapreated soon
@@ -33,7 +34,6 @@ export default class AddStory extends Backbone.View {
   @on('submit .storyForm')
   save(e) {
     e.preventDefault();
-
     var userStory = new UserStoryModel();
     var summary = this.getSummary(userStory);
 
