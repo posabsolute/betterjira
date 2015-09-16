@@ -53,12 +53,7 @@ export default class DropdownHelperComponent extends Backbone.View {
     var caretPos = this.$input.getCaretPosition();
 
     // verify if we are writting a new word
-    if (this.active && !this.getCurrentWrittenWord(writtenText, caretPos)) {
-      this.symbolMode && this.removeSymbols(writtenText, caretPos);
-      this.hide();
-      this.active = false;
-      this.symbolMode = false;
-    }
+    this.verifyNewWord(writtenText, caretPos);
 
     // conditions that shows dropdown
     this.verifySymbol(writtenText, caretPos);
@@ -69,7 +64,24 @@ export default class DropdownHelperComponent extends Backbone.View {
       this.showDropdown(writtenText, caretPos);
     }
   }
-
+  /**
+   * Verify that the user is moving to a new word, deactive dropdown
+   * @param  {string} writtenText full input text
+   * @param  {number} caretPos    user current position in input
+   */
+  verifyNewWord(writtenText, caretPos) {
+    if (this.active && !this.getCurrentWrittenWord(writtenText, caretPos)) {
+      this.symbolMode && this.removeSymbols(writtenText, caretPos);
+      this.hide();
+      this.active = false;
+      this.symbolMode = false;
+    }
+  }
+  /**
+   * Verify text before caret match dropdown before text condition
+   * @param  {string} writtenText full input text
+   * @param  {number} caretPos    user current position in input
+   */
   verifyBeforeText(text, caretPos) {
     var textLength = this.collection.showDropdownText.length;
     var textBeforeCaret = text.slice(caretPos - textLength, caretPos);
@@ -78,36 +90,56 @@ export default class DropdownHelperComponent extends Backbone.View {
       this.active = true;
     }
   }
-
-  verifySymbol(text, caretPos) {
-    var currentWord = this.getCurrentWrittenWord(writtenText, caretPos);
+  /**
+   * Verify currently being written word first letters match dropdown symbol condition
+   * @param  {string} writtenText full input text
+   * @param  {number} caretPos    user current position in input
+   */
+  verifySymbol(writtenText, caretPos) {
+    var currentWord = this.getCurrentWrittenWord(writtenText, caretPos, true);
     var firstLetters = currentWord.slice(0, this.collection.showDropdownSymbol.length);
 
     if (firstLetters === this.collection.showDropdownSymbol) {
       this.active = true;
       this.symbolMode = true;
     }
-
   }
-
+  /**
+   * get last written word
+   * @param  {string} text full input text
+   * @param  {number} caretPos    user current position in input
+   */
   getLastWrittenWord(text, caretPos) {
     var beforeText = text.slice(0, caretPos);
     var lastWord = beforeText.split(' ')[beforeText.length - 2];
 
     return lastWord;
   }
-
-  getCurrentWrittenWord(text, caretPos) {
+  /**
+   * get currently being written word
+   * @param  {string} text full input text
+   * @param  {number} caretPos user current position in input
+   * @param  {bool} withSymbols should return alphanumeric
+   */
+  getCurrentWrittenWord(text, caretPos, withSymbols) {
     var beforeText = text.slice(0, caretPos);
     var currentWord = beforeText.split(' ').pop();
-
-    return currentWord;
+    console.log(currentWord.replace(/\W/g, ''))
+    return (withSymbols) ? currentWord : currentWord.replace(/\W/g, '');
   }
-
+  /**
+   * Remove symbol when user change to new word
+   * @param  {string} text full input text
+   * @param  {number} caretPos user current position in input
+   */
   removeSymbols(writtenText, caretPos) {
-    var lastWord = this.getLastWrittenWord(text, caretPos);
+    var lastWord = this.getLastWrittenWord(writtenText, caretPos);
   }
-
+  /**
+   * Show dropdown with filtered collection
+   * @param  {string} text full input text
+   * @param  {number} caretPos user current position in input
+   */
   showDropdown(text, caretPos) {
     var filterText = this.getCurrentWrittenWord(text, caretPos);
     this.show({
