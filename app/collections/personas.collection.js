@@ -11,7 +11,7 @@ export default class Personas extends Backbone.Collection {
   initialize() {
     // setup configs for the dropdown helper
     this.showDropdownText = 'As a ';
-    this.showDropdownSymbol = "::";
+    this.showDropdownSymbol = '::';
     this.transformSymbol = false;
     this.showDropdownKeys = 'ctrl+p';
 

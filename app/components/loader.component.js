@@ -5,7 +5,7 @@ import {tagName, on} from '../mixins/backbone-props';
  * Component used to show a full section line loder
  * @class LoaderComponent
  */
-@tagName('jira-progress')
+@tagName('progress')
 export default class LoaderComponent extends Backbone.View {
   /**
     * When initializing the loader we setup the loader using the component system
@@ -16,7 +16,7 @@ export default class LoaderComponent extends Backbone.View {
       this.$el = options.$el;
     }
 
-    this.$el.html('<jira-progress-indeterminate></jira-progress-indeterminate>');
+    this.$el.html('<div class="progress--indeterminate"></div>');
   }
   /**
     * Show a line animated loader the width of the parent
@@ -34,7 +34,7 @@ export default class LoaderComponent extends Backbone.View {
     * loader becomes green for a couple of seconds & hide itself.
     */
   success() {
-    this.$el.find('jira-progress-indeterminate').removeClass('animate').addClass('jira-progress-success');
+    this.$el.find('jira-progress-indeterminate').removeClass('animate').addClass('jira-progress--success');
     this.$el.animate({ opacity:0 }, 2000);
   }
   /**

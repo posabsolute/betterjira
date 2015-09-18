@@ -1,4 +1,4 @@
-modal-jira{
+.modal{
 	font-family:$font-family-sans-serif;
 	position: fixed;
 	top: 50%;
@@ -13,7 +13,7 @@ modal-jira{
 	opacity: 0;
 	background: #fff;
 
-	modal-jiraHeader{
+	.modal__header{
 		display:block;
 		position: relative;
 		height: 56px;
@@ -25,16 +25,13 @@ modal-jira{
 		color: #333;
 	}
 
-	form{margin:0 !important; }
-
-	modal-jiraContent{
+	modal__content{
 		display:block;
 		font-size:12px;
-
 		padding: 20px 20px;
 	}
 	
-	modal-jiraFooter{
+	modal__footer{
 		display:block;
 		position: relative;
 		height: 57px;
@@ -45,9 +42,6 @@ modal-jira{
 
 
 		border-radius: 0 0 2px 2px;
-		button-jira {
-			margin-top:10px;
-		}
 	}
 
 }

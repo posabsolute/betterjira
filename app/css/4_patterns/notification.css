@@ -1,4 +1,4 @@
-jira-notification {
+.notification {
   position: fixed;
   display: none;
   top: 0; left: 0;
@@ -11,7 +11,7 @@ jira-notification {
   margin-left: -320px;
   text-align: center;
 }
-  jira-notification-content{
+  .notification__content{
     display: inline-block;
     box-shadow: 0 1px 1px rgba(0,0,0,0.25),0 0 1px rgba(0,0,0,0.35);
     border-radius: 0 0 4px 4px;
@@ -20,10 +20,7 @@ jira-notification {
     color: rgba(0,0,0,0.8);
   }
 
-  .jira-notification-error{
-    jira-notification-content{
-      background: #cc5454;
-      color: #fff;
-    }
-
-}
+  .notification--error{
+    background: #cc5454;
+    color: #fff;
+  }

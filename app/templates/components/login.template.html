@@ -1,29 +1,27 @@
 <form type="post" action="" class="authForm">
-	<modal-jiraContent>
-		<modal-content>
-			<p-jira class="centerParent">Jira Login</p-jira>
-			<div class="inputContainer">
-				<input type="text" name="username" class="jira-input__opacity jira-input--with-icon top10" placeholder="Username" required value="{{username}}">
-				<div class="input-icon  icon-user"></div>
-			</div>
-			<div class="inputContainer">
-				<input type="password" name="password" class="jira-input__opacity jira-input--with-icon top10" placeholder="Password" required value="{{password}}">
-				<div class="input-icon icon-key"></div>
-			</div>
+	<div class="container">
+		<p class="center">Jira Login</p>
+		<div class="input-container">
+			<input type="text" name="username" class="input--opacity input--with-icon top10" placeholder="Username" required value="{{username}}">
+			<div class="input-icon icon-user"></div>
+		</div>
+		<div class="input-container">
+			<input type="password" name="password" class="input--opacity input--with-icon top10" placeholder="Password" required value="{{password}}">
+			<div class="input-icon icon-key"></div>
+		</div>
 
-			<p-jira class="centerParent">Project Informations</p-jira>
-			<div class="inputContainer">
-				<input type="url" name="url" class="jira-input__opacity jira-input--with-icon top10" placeholder="Jira URL" required value="{{url}}">
-				<div class="input-icon icon-link"></div>
-			</div>
-			<div class="inputContainer">
-				<input type="text" name="projectid" class="jira-input__opacity jira-input--with-icon  top10" placeholder="Project ID" required value="{{projectid}}">
-				<div class="input-icon icon-folder-o"></div>
-			</div>
-		</modal-content>
-	</modal-jiraContent>
-	<modal-jiraFooter class="centerParent">
-		<button-jira type="submit" class="btnJira__opacity-primary btn-jira-connect">Continue</button-jira>
-	</modal-jiraFooter>
+		<p class="center">Project Informations</p>
+		<div class="input-container">
+			<input type="url" name="url" class="input__opacity input--with-icon top10" placeholder="Jira URL" required value="{{url}}">
+			<div class="input-icon icon-link"></div>
+		</div>
+		<div class="input-container">
+			<input type="text" name="projectid" class="input__opacity input--with-icon top10" placeholder="Project ID" required value="{{projectid}}">
+			<div class="input-icon icon-folder-o"></div>
+		</div>
+	</div>
+	<div class="center">
+		<button type="submit" class="btn__opacity-primary btn--connect">Continue</button-jira>
+	</div>
 </form>
-<jira-progress class="jira-progress--top" component="Loader" name="progressBar"></jira-progress>
+<progress class="progress--top" component="Loader" name="progressBar"></progress>

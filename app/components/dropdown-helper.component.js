@@ -124,7 +124,6 @@ export default class DropdownHelperComponent extends Backbone.View {
   getCurrentWrittenWord(text, caretPos, withSymbols) {
     var beforeText = text.slice(0, caretPos);
     var currentWord = beforeText.split(' ').pop();
-    console.log(currentWord.replace(/\W/g, ''))
     return (withSymbols) ? currentWord : currentWord.replace(/\W/g, '');
   }
   /**

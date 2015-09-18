@@ -13,7 +13,7 @@ export default class NotificationComponent extends Backbone.View {
    * When initializing we add the component to the body, stays hidden until used
    */
   initialize() {
-    this.$el.html('<jira-notification-content></jira-notification-content>');
+    this.$el.html('<div class="jira-notification-content"></div>');
     $('body').append(this.$el);
 
     var notifChannel = Backbone.Radio.channel('notification');
@@ -30,7 +30,7 @@ export default class NotificationComponent extends Backbone.View {
     this.$el.css('display', 'none');
     this.$('jira-notification-content').html(message);
     this.$el
-      .attr('class', 'jira-notification-' + type)
+      .addClass('jira-notification--' + type)
       .slideDown(200);
 
     setTimeout(() => {

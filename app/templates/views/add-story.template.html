@@ -1,20 +1,20 @@
-<jiraContentSection>
+<div class="content-section">
 
 	<form type="post" action="" class="storyForm">
 
-		<textarea class="no-design" placeholder="Your story title" name="description" id="storyDescription">asd</textarea>
+		<textarea class="textarea--plain" placeholder="Your story title" name="description" id="storyDescription">asd</textarea>
 		<dropdownHelper component="DropdownHelperComponent" data-collection="Personas" data-input="#storyDescription"></dropdownHelper>
 
-		<div-jira class="points">
+		<div class="points">
 			<input name="business" class="jira-input" placeholder="Business Value">
 			<input name="storypoints" class="jira-input" placeholder="Story points">
-		</div-jira>
+		</div>
 
 		<textarea class="text-writter" placeholder="Description" name="description"></textarea>
 
-		<contentFooter>
-			<button-jira class="btnJira-default btn-jira-cancel">Cancel</button-jira>
-			<button-jira class="btnJira-primary btn-jira-add-story btn-submit">Save</button-jira>
-		</contentFooter>
+		<div class="content__footer-buttons">
+			<button class="btnJira-default btn-jira-cancel">Cancel</button>
+			<button class="btnJira-primary btn-jira-add-story btn-submit">Save</button>
+		</div>
 	</form>
-<jiraContentSection>
+<div>

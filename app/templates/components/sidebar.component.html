@@ -1,13 +1,21 @@
-<jira-sidebar__background></jira-sidebar__background>
-<jira-sidebar__content>
-	<jira-close-link class="icon-close"></jira-close-link>
-	<jira-sidebar__menu>
-		<jira-sidebar__link class="icon-story btn-navigate" href="/story"><span>Add Story or bug</span></jira-sidebar__link>
-		<jira-sidebar__link class="icon-backlog" href="settings"><span>Backlog</span></jira-sidebar__link>
-		<jira-sidebar__link class="icon-intelligence" href="settings"><span>Intelligence</span></jira-sidebar__link>
-		<jira-sidebar__link class="icon-profile" href="settings"><span>Profile</span></jira-sidebar__link>
-	</jira-sidebar__menu>≈
-	<jira-sidebar__container class="jira-hidden">
+<div class="sidebar__background"></div>
+<div class="sidebar__content">
+	<div class="close-link icon-close"></div>
+	<div class="sidebar__menu">
+		<div class="sidebar__link icon-story btn-navigate" href="/story">
+			<span class="sidebar__link__content">Add Story or bug</span>
+		</div>
+		<div class="sidebar__link icon-backlog" href="settings">
+			<span class="sidebar__link__content">Backlog</span>
+		</div>
+		<div class="sidebar__link icon-intelligence" href="settings">
+			<span class="sidebar__link__content">Intelligence</span>
+		</div>
+		<div class="sidebar__link icon-profile" href="settings">
+			<span class="sidebar__link__content">Profile</span>
+		</div>
+	</div>
+	<div class="sidebar__container hidden">
 		<jira-auth-form component="LoginForm" class="" name="LoginForm" initVars='user'></jira-auth-form>
-	</jira-sidebar__container>
-</jira-sidebar__content>
+	</div>
+</div>

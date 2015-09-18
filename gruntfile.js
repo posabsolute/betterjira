@@ -29,31 +29,27 @@ module.exports = function(grunt) {
         },
       },
     },
-    sass: {
+    postcss: {
       options: {
-        sourceMap: true
+        map: true,
+        processors: [
+          require('postcss-import')(),
+          require('cssnext')(), // add fallbacks for rem units
+        ],
       },
-      dev: {
-        files: {
-          'dist/css/dev/main.css': 'app/css/main.scss'
-        }
-      },
+
       dist: {
-        options:{
-          outputStyle : "compressed",
-          sourceMap : "false"
-        },
-        files: {
-          'dist/css/main.css': 'app/css/main.scss'
-        }
-      }
+        src: 'app/css/main.css',
+        dest: 'dist/css/dev/main.css'
+      },
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-nunjucks');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-postcss');
+
 
   grunt.registerTask("build", ["nunjucks", "sass"]);
 
