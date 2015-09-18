@@ -26,7 +26,7 @@ export default class LoaderComponent extends Backbone.View {
     $parent && $parent.append(this.$el);
 
     this.$el.css({ display:'block' });
-    this.$el.find('jira-progress-indeterminate').addClass('animate');
+    this.$el.find('progress-indeterminate').addClass('animate');
     this.$el.animate({ opacity:1 }, 200);
   }
   /**
@@ -34,7 +34,7 @@ export default class LoaderComponent extends Backbone.View {
     * loader becomes green for a couple of seconds & hide itself.
     */
   success() {
-    this.$el.find('jira-progress-indeterminate').removeClass('animate').addClass('jira-progress--success');
+    this.$el.find('progress-indeterminate').removeClass('animate').addClass('progress--success');
     this.$el.animate({ opacity:0 }, 2000);
   }
   /**
@@ -42,7 +42,7 @@ export default class LoaderComponent extends Backbone.View {
     */
   hide() {
     this.$el.animate({ opacity:0 }, 200, ()=> {
-      this.$el.find('jira-progress-indeterminate').removeClass('animate');
+      this.$el.find('jprogress-indeterminate').removeClass('animate');
     });
   }
 }
