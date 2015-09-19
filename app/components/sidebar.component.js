@@ -13,7 +13,7 @@ const width = {
  * Contains menu & login form
  * @class SidebarComponent
  */
-@tagName('jira-sidebar')
+@tagName('sidebar')
 @template('components/sidebar.component.html')
 @components({'LoginForm': LoginForm}) // Components defined here can be auto-loaded when this view is rendered
 export default class SidebarComponent extends Backbone.View {

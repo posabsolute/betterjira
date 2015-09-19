@@ -1,3 +1,20 @@
+
+ .textarea--plain{
+  font-size:18px;
+  width:100%;
+  height:50px;
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+ }
+
+.input-container{position:relative;}
+
+
 label {
   display: inline-block;
   max-width: 100%;
@@ -59,23 +76,3 @@ label {
     top: 30px;left: 25px;
     z-index: 2;
 }
-
- .textarea-input{
- 	height:150px;
- 	margin-bottom:10px;
- }
-
- .textarea--plain{
-  font-size:18px;
-  width:100%;
-  height:50px;
-  border: none;
-  overflow: auto;
-  outline: none;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
- }
-
-.input-container{position:relative;}

@@ -34,7 +34,8 @@ module.exports = function(grunt) {
         map: true,
         processors: [
           require('postcss-import')(),
-          require('cssnext')(), // add fallbacks for rem units
+          require('lost'),
+          require('cssnext')() // add fallbacks for rem units
         ],
       },
 
@@ -51,6 +52,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-postcss');
 
 
-  grunt.registerTask("build", ["nunjucks", "sass"]);
+  grunt.registerTask("build", ["nunjucks", "postcss"]);
 
 };

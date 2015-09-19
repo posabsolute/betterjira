@@ -7,13 +7,13 @@ import {tagName, on} from '../mixins/backbone-props';
  *
  * @class NotificationComponent
  */
-@tagName('jira-notification')
+@tagName('notification')
 export default class NotificationComponent extends Backbone.View {
   /**
    * When initializing we add the component to the body, stays hidden until used
    */
   initialize() {
-    this.$el.html('<div class="jira-notification-content"></div>');
+    this.$el.html('<div class="notification__content"></div>');
     $('body').append(this.$el);
 
     var notifChannel = Backbone.Radio.channel('notification');
@@ -28,7 +28,7 @@ export default class NotificationComponent extends Backbone.View {
    */
   show({message, type = 'success'}) {
     this.$el.css('display', 'none');
-    this.$('jira-notification-content').html(message);
+    this.$('notification__content').html(message);
     this.$el
       .addClass('jira-notification--' + type)
       .slideDown(200);

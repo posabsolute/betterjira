@@ -24,10 +24,9 @@ export function backboneViewComponentsPatch() {
 
   // default view render function including component init
   Backbone.View.prototype.renderHtml = function(data, data2) {
-    console.log(data);
-    console.log(this)
     this.$el.html(nunjucks.render(this.template, data));
     this.initializeViewComponents();
+    this.afterRender && this.afterRender();
     return this;
   };
 }

@@ -36,9 +36,9 @@ sidebar{
 			font-size: 15px;
 			color: #FFFFFF;
 			letter-spacing: 1px;
-			line-height: 16px;
+			line-height: 13px;
 		}
-			.sidebar__link__content{
+			.xw{
 				display: inline-block;
 				margin-top:-3px;				
 			}
