@@ -1,5 +1,5 @@
 import Backbone from 'backbone';
-import {tagName, on} from '../mixins/backbone-props';
+import {tagName, on} from '../../mixins/backbone-props';
 /**
  * Base view for modals
  * Setup the basic needs for lauching & hiding a modal

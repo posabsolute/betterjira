@@ -1,5 +1,5 @@
 import Backbone from 'backbone';
-import {tagName, on} from '../mixins/backbone-props';
+import {tagName, on} from '../../mixins/backbone-props';
 
 /**
  * Component used to show a full section line loder

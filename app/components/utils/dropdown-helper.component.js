@@ -1,8 +1,8 @@
 import Backbone from 'backbone';
 import caretUtil from 'caret';
 import rangeUtil from 'timdown/rangyinputs';
-import {tagName, on, template} from '../mixins/backbone-props';
-import Personas from '../collections/personas.collection';
+import {tagName, on, template, keyboardEvent} from '../../mixins/backbone-props';
+import Personas from '../../collections/personas.collection';
 
 const collections = {
   Personas: Personas,
@@ -14,7 +14,7 @@ const collections = {
  *
  * @class DropdownHelperComponent
  */
-@template('components/dropdown-helper.template.html')
+@template('components/utils/dropdown-helper.template.html')
 export default class DropdownHelperComponent extends Backbone.View {
   /**
    * Setup input events and collections
@@ -148,8 +148,9 @@ export default class DropdownHelperComponent extends Backbone.View {
   /**
    * Set dropdown selection in the input at the caret position, or selected text
    */
+  @keyboardEvent('enter')
   setSelection(selection) {
-
+    var selectedItem = this.$('db-helper__item.selected').html() || this.$('db-helper__item:first').html();
   }
   /**
    * Hide the notification header

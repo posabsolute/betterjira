@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import Backbone from 'backbone';
 
 export function backboneViewComponentsPatch() {
@@ -16,6 +17,11 @@ export function backboneViewComponentsPatch() {
         initVars.forEach((data)=> {
           options[data] = this[data];
         });
+      }
+
+      if (!_.isFunction(this.availableComponents[component])) {
+        console.warn(component + ' component does not exist');
+        return;
       }
 
       this[name] =  new this.availableComponents[component](options);

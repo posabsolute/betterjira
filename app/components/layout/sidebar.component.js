@@ -1,7 +1,7 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
-import LoginForm from './login.component';
-import {tagName, template, components, on, radio} from '../mixins/backbone-props';
+import LoginForm from '../login.component';
+import {tagName, template, components, on, radio} from '../../mixins/backbone-props';
 
 const width = {
   sidebarSmall: 220,
@@ -14,7 +14,7 @@ const width = {
  * @class SidebarComponent
  */
 @tagName('sidebar')
-@template('components/sidebar.component.html')
+@template('components/layout/sidebar.component.html')
 @components({'LoginForm': LoginForm}) // Components defined here can be auto-loaded when this view is rendered
 export default class SidebarComponent extends Backbone.View {
   /**

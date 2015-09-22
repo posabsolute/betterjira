@@ -1,10 +1,11 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
 import mardownEditor from 'simplemde';
+import {template, components, className, on} from '../mixins/backbone-props';
+
 import UserStoryModel from '../models/story.model';
 import ContainerAnims from '../mixins/containerAnims.mixin';
-import DropdownHelperComponent from '../components/dropdown-helper.component';
-import {template, components, className, on} from '../mixins/backbone-props';
+import DropdownHelperComponent from '../components/utils/dropdown-helper.component';
 
 /**
  * Add story form

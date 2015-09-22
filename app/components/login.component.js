@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 import serializeObject from 'serializeObject';
-import Loader from './loader.component';
+import Loader from './utils/loader.component';
 import {template, components, on} from '../mixins/backbone-props';
 
 /**

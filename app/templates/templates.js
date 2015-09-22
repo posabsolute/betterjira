@@ -1,30 +1,9 @@
-(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["components/dropdown-helper.template.html"] = (function() {function root(env, context, frame, runtime, cb) {
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["components/layout/sidebar.component.html"] = (function() {function root(env, context, frame, runtime, cb) {
 var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"dp-helper\">\n\t";
-frame = frame.push();
-var t_3 = runtime.contextOrFrameLookup(context, frame, "collection");
-if(t_3) {var t_2 = t_3.length;
-for(var t_1=0; t_1 < t_3.length; t_1++) {
-var t_4 = t_3[t_1];
-frame.set("item", t_4);
-frame.set("loop.index", t_1 + 1);
-frame.set("loop.index0", t_1);
-frame.set("loop.revindex", t_2 - t_1);
-frame.set("loop.revindex0", t_2 - t_1 - 1);
-frame.set("loop.first", t_1 === 0);
-frame.set("loop.last", t_1 === t_2 - 1);
-frame.set("loop.length", t_2);
-output += "\n  \t\t<li>";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"archetype", env.opts.autoescape), env.opts.autoescape);
-output += "</li>\n\t";
-;
-}
-}
-frame = frame.pop();
-output += "\n</ul>\n</div>";
+output += "<div class=\"sidebar__background\"></div>\n<div class=\"sidebar__content\">\n\t<div class=\"close-link icon-close\"></div>\n\t<div class=\"sidebar__menu\">\n\t\t<div class=\"sidebar__link icon-story btn-navigate\" href=\"/story\">\n\t\t\t<span class=\"sidebar__link__content\">Add Story or bug</span>\n\t\t</div>\n\t\t<div class=\"sidebar__link icon-backlog\" href=\"settings\">\n\t\t\t<span class=\"sidebar__link__content\">Backlog</span>\n\t\t</div>\n\t\t<div class=\"sidebar__link icon-intelligence\" href=\"settings\">\n\t\t\t<span class=\"sidebar__link__content\">Intelligence</span>\n\t\t</div>\n\t\t<div class=\"sidebar__link icon-profile\" href=\"settings\">\n\t\t\t<span class=\"sidebar__link__content\">Profile</span>\n\t\t</div>\n\t</div>\n\t<div class=\"sidebar__container hidden\">\n\t\t<jira-auth-form component=\"LoginForm\" class=\"\" name=\"LoginForm\" initVars='user'></jira-auth-form>\n\t</div>\n</div>\n";
 cb(null, output);
 ;
 } catch (e) {
@@ -61,12 +40,81 @@ root: root
 };
 })();
 })();
-(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["components/sidebar.component.html"] = (function() {function root(env, context, frame, runtime, cb) {
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["components/pbi/pbi-comments.component.html"] = (function() {function root(env, context, frame, runtime, cb) {
 var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"sidebar__background\"></div>\n<div class=\"sidebar__content\">\n\t<div class=\"close-link icon-close\"></div>\n\t<div class=\"sidebar__menu\">\n\t\t<div class=\"sidebar__link icon-story btn-navigate\" href=\"/story\">\n\t\t\t<span class=\"sidebar__link__content\">Add Story or bug</span>\n\t\t</div>\n\t\t<div class=\"sidebar__link icon-backlog\" href=\"settings\">\n\t\t\t<span class=\"sidebar__link__content\">Backlog</span>\n\t\t</div>\n\t\t<div class=\"sidebar__link icon-intelligence\" href=\"settings\">\n\t\t\t<span class=\"sidebar__link__content\">Intelligence</span>\n\t\t</div>\n\t\t<div class=\"sidebar__link icon-profile\" href=\"settings\">\n\t\t\t<span class=\"sidebar__link__content\">Profile</span>\n\t\t</div>\n\t</div>\n\t<div class=\"sidebar__container hidden\">\n\t\t<jira-auth-form component=\"LoginForm\" class=\"\" name=\"LoginForm\" initVars='user'></jira-auth-form>\n\t</div>\n</div>\n";
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+})();
+})();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["components/pbi/pbi-files.component.html"] = (function() {function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+})();
+})();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["components/pbi/pbi-infos.component.html"] = (function() {function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+})();
+})();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["components/utils/dropdown-helper.template.html"] = (function() {function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+output += "<div class=\"dp-helper\">\n\t";
+frame = frame.push();
+var t_3 = runtime.contextOrFrameLookup(context, frame, "collection");
+if(t_3) {var t_2 = t_3.length;
+for(var t_1=0; t_1 < t_3.length; t_1++) {
+var t_4 = t_3[t_1];
+frame.set("item", t_4);
+frame.set("loop.index", t_1 + 1);
+frame.set("loop.index0", t_1);
+frame.set("loop.revindex", t_2 - t_1);
+frame.set("loop.revindex0", t_2 - t_1 - 1);
+frame.set("loop.first", t_1 === 0);
+frame.set("loop.last", t_1 === t_2 - 1);
+frame.set("loop.length", t_2);
+output += "\n  \t\t<li class=\"dp-helper__item\">";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"archetype", env.opts.autoescape), env.opts.autoescape);
+output += "</li>\n\t";
+;
+}
+}
+frame = frame.pop();
+output += "\n</ul>\n</div>";
 cb(null, output);
 ;
 } catch (e) {
@@ -83,7 +131,7 @@ var lineno = null;
 var colno = null;
 var output = "";
 try {
-output += "<div class=\"content-section\">\n\t<h2>Add Story of bug</h2>\n\t<form type=\"post\" action=\"\" class=\"storyForm\">\n\n\t\t<textarea class=\"textarea--plain\" placeholder=\"Your story title\" name=\"description\" id=\"storyDescription\">asd</textarea>\n\t\t<dropdownHelper component=\"DropdownHelperComponent\" data-collection=\"Personas\" data-input=\"#storyDescription\"></dropdownHelper>\n\n\t\t<div class=\"points\">\n\t\t\t<input name=\"business\" class=\"jira-input\" placeholder=\"Business Value\">\n\t\t\t<input name=\"storypoints\" class=\"jira-input\" placeholder=\"Story points\">\n\t\t</div>\n\n\t\t<textarea class=\"text-writter\" placeholder=\"Description\" name=\"description\"></textarea>\n\n\t\t<div class=\"content__footer-buttons\">\n\t\t\t<button class=\"btnJira-default btn-jira-cancel\">Cancel</button>\n\t\t\t<button class=\"btnJira-primary btn-jira-add-story btn-submit\">Save</button>\n\t\t</div>\n\t</form>\n<div>";
+output += "<div class=\"content-section\">\n\t<h2>Add Story of bug</h2>\n\t<form type=\"post\" action=\"\" class=\"storyForm\">\n\n\t\t<textarea class=\"textarea--plain\" placeholder=\"Your story title\" name=\"description\" id=\"storyDescription\">asd</textarea>\n\t\t<dropdownHelper component=\"DropdownHelperComponent\" data-collection=\"Personas\" data-input=\"#storyDescription\"></dropdownHelper>\n\n\t\t<div class=\"points\">\n\t\t\t<input name=\"business\" class=\"jira-input\" placeholder=\"Business Value\">\n\t\t\t<input name=\"storypoints\" class=\"jira-input\" placeholder=\"Story points\">\n\t\t</div>\n\n\t\t<textarea class=\"text-writter\" placeholder=\"Description\" name=\"description\"></textarea>\n\n\t\t<div class=\"content__footer-buttons\">\n\t\t\t<button class=\"btnJira-default btn-jira-cancel\">Cancel</button>\n\t\t\t<button class=\"btnJira-primary btn-jira-add-story btn-submit\">Save</button>\n\t\t</div>\n\t</form>\n<div>\n<rightbar component=\"RightBar\">\n\t<pbiInfos component=\"PBIinfos\"></storyInfos>\n\t<storyPictures component=\"PBIpictures\"></storyPictures>\n\t<comments component=\"PBIcomments\"></comments>\n</rightbar>\n";
 cb(null, output);
 ;
 } catch (e) {

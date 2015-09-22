@@ -2,7 +2,7 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 import hotkeys from 'hotkeys';
 import AddStory from './views/add-story.view';
-import Sidebar from './components/sidebar.component';
+import Sidebar from './components/layout/sidebar.component';
 import {route} from './mixins/backbone-props';
 
 /**

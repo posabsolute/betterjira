@@ -74,6 +74,25 @@ export function radio(channel, eventName) {
   };
 }
 
+export function keyboardEvent(eventName) {
+  return function(target, name, descriptor) {
+    if (!target.keyboardEvents) {
+      target.keyboardEvents = {};
+    }
+
+    if (_.isFunction(target.keyboardEvents)) {
+      throw new Error('The on decorator is not compatible with an events method');
+      return;
+    }
+
+    if (!eventName) {
+      throw new Error('The on decorator requires an eventName argument');
+    }
+    console.log(eventName);
+    target.keyboardEvents[eventName] = name;
+    return descriptor;
+  };
+}
 
 export function route(routeName) {
   return function(target, name, descriptor) {
@@ -84,6 +103,10 @@ export function route(routeName) {
     if (_.isFunction(target.events)) {
       throw new Error('The route decorator is not compatible with an events method');
       return;
+    }
+
+    if (!routeName) {
+      throw new Error('The on decorator requires an routeName argument');
     }
 
     target.routes[routeName] = name;
