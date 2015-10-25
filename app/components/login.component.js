@@ -10,7 +10,7 @@ import {template, components, on} from '../mixins/backbone-props';
  */
 @template('components/login.template.html')
 @components({'Loader' : Loader})
-export default class LoginForm extends Backbone.View {
+export default class LoginFormComponent extends Backbone.View {
   /**
    * Basic view setup
    * @param {object} userData - user model data, used to prefill the form

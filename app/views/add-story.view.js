@@ -15,7 +15,7 @@ import DropdownHelperComponent from '../components/utils/dropdown-helper.compone
 @ContainerAnims // Animations used by main container views
 @template('views/add-story.template.html')
 @className('view-add-story')
-@components({'DropdownHelperComponent': DropdownHelperComponent})
+@components({'DropdownHelper': DropdownHelperComponent})
 
 export default class AddStory extends Backbone.View {
   afterRender() {

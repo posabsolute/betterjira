@@ -10,8 +10,10 @@ export function backboneViewComponentsPatch() {
       var $el = $(el);
       var name = $el.attr('name');
       var initVars = $el.attr('initVars') ? $el.attr('initVars').split(',') : '';
-      var component = $el.attr('component');
+      var component = $el.prop("tagName").toLowerCase();
       var options  = {el: $el, parent:this };
+      var components = this.availableComponents;
+      var componentsList = $.each(components, function(i, v) { components[i.toLowerCase()] = v; delete components[i]; });
 
       if (initVars) {
         initVars.forEach((data)=> {
@@ -19,12 +21,12 @@ export function backboneViewComponentsPatch() {
         });
       }
 
-      if (!_.isFunction(this.availableComponents[component])) {
+      if (!_.isFunction(componentsList[component])) {
         console.warn(component + ' component does not exist');
         return;
       }
 
-      this[name] =  new this.availableComponents[component](options);
+      this[name] =  new componentsList[component](options);
     });
   };
 

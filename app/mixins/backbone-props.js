@@ -88,7 +88,7 @@ export function keyboardEvent(eventName) {
     if (!eventName) {
       throw new Error('The on decorator requires an eventName argument');
     }
-    console.log(eventName);
+
     target.keyboardEvents[eventName] = name;
     return descriptor;
   };

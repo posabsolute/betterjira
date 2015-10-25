@@ -21,10 +21,10 @@ export default class DropdownHelperComponent extends Backbone.View {
    */
   initialize(options) {
     this.parent = options.parent;
-    var inputID = this.$el.data('input');
+    var inputID = this.$el.attr('input');
     this.$input = this.parent.$(inputID);
 
-    this.collection = new collections[this.$el.data('collection')]();
+    this.collection = new collections[this.$el.attr('collection')]();
     this.renderHtml();
     this.inputListener();
   }

@@ -3,7 +3,7 @@
 	<form type="post" action="" class="storyForm">
 
 		<textarea class="textarea--plain" placeholder="Your story title" name="description" id="storyDescription">asd</textarea>
-		<dropdownHelper component="DropdownHelperComponent" data-collection="Personas" data-input="#storyDescription"></dropdownHelper>
+		<DropdownHelper component collection="Personas" input="#storyDescription"></dropdownHelper>
 
 		<div class="points">
 			<input name="business" class="jira-input" placeholder="Business Value">
@@ -19,7 +19,7 @@
 	</form>
 <div>
 <rightbar component="RightBar">
-	<pbiInfos component="PBIinfos"></storyInfos>
-	<storyPictures component="PBIpictures"></storyPictures>
-	<comments component="PBIcomments"></comments>
+	<PBIinfos component />
+	<PBIpictures component />
+	<PBIcomments component />
 </rightbar>

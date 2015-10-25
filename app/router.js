@@ -25,7 +25,6 @@ export default class Router extends Backbone.Router {
   initNavigator() {
     $(document).on('click', '.btn-navigate', (e)=> {
       e.preventDefault();
-      console.log(e);
       var url = $(e.currentTarget).attr('href');
       this.navigate(url, {trigger: true});
     });
